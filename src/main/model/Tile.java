@@ -1,21 +1,17 @@
 package model;
 
 public interface Tile {
- int getIdNum();
+    int getIdNum();
 
- String getCatergory();
+    String getCatergory();
 
- Boolean startOfShuntsu();
+    Boolean startOfShuntsu();
 
- int getCount();
+    int getCount();
 
- void increaseCount();
+    void increaseCount();
 
- void decreaseCount();
-
-
-
-
+    void decreaseCount();
 
 
 }

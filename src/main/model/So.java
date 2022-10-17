@@ -1,6 +1,6 @@
 package model;
 
-public class So implements Tile  {
+public class So implements Tile {
 
 
     private int idNum;
@@ -10,11 +10,11 @@ public class So implements Tile  {
     private int count;
 
 
-
-    public So (int idNum ){
+    public So(int idNum) {
         this.idNum = idNum;
         category = "So";
         startShuntsu = false;
+        count = 0;
     }
 
     public int getIdNum() {
@@ -29,14 +29,15 @@ public class So implements Tile  {
         return startShuntsu;
     }
 
-    public int getCount()  {
-        return count;}
+    public int getCount() {
+        return count;
+    }
 
     public void increaseCount() {
         count += 1;
     }
 
-    public void decreaseCount()  {
+    public void decreaseCount() {
         count -= 1;
     }
 }

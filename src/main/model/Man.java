@@ -8,11 +8,11 @@ public class Man implements Tile {
     private int count;
 
 
-
-    public Man (int idNum ){
+    public Man(int idNum) {
         this.idNum = idNum;
         category = "Man";
         startShuntsu = false;
+        count = 0;
     }
 
     public int getIdNum() {
@@ -27,14 +27,15 @@ public class Man implements Tile {
         return startShuntsu;
     }
 
-    public int getCount()  {
-        return count;}
+    public int getCount() {
+        return count;
+    }
 
     public void increaseCount() {
         count += 1;
     }
 
-    public void decreaseCount()  {
+    public void decreaseCount() {
         count -= 1;
     }
 }

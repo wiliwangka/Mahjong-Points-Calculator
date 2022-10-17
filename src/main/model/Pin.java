@@ -8,10 +8,11 @@ public class Pin implements Tile {
     private int count;
 
 
-    public Pin (int idNum ){
+    public Pin(int idNum) {
         this.idNum = idNum;
         category = "Pin";
         startShuntsu = false;
+        count = 0;
     }
 
     public int getIdNum() {
@@ -26,14 +27,15 @@ public class Pin implements Tile {
         return startShuntsu;
     }
 
-    public int getCount()  {
-        return count;}
+    public int getCount() {
+        return count;
+    }
 
     public void increaseCount() {
         count += 1;
     }
 
-    public void decreaseCount()  {
+    public void decreaseCount() {
         count -= 1;
     }
 }
