@@ -7,6 +7,14 @@ public interface Tile {
 
  Boolean startOfShuntsu();
 
+ int getCount();
+
+ void increaseCount();
+
+ void decreaseCount();
+
+
+
 
 
 

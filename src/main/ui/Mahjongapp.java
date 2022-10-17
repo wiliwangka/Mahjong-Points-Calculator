@@ -1,19 +1,23 @@
 package ui;
 
+import model.Mahjong;
+
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Mahjongapp {
+public int round;
+public int position;
 
     public Mahjongapp() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("please indicate current round in 1 2 3 4 for E S W N :");
-        String r1 = scanner.next();
+       round = Integer.parseInt(scanner.next());
         System.out.println("please enter current position 1 2 3 4 for E S W N");
-        String  p1 = scanner.next();
-        System.out.println("round = " + r1 + ", position = " + p1);
+        position = Integer.parseInt(scanner.next());
+        System.out.println("round = " + round + ", position = " + position);
         System.out.println();
         displayMenu();
         entertiles();
@@ -23,7 +27,7 @@ public class Mahjongapp {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> currenthand = new ArrayList<String>();
 
-
+        System.out.println("enter the tiles in the above format :");
 
 
                String t1 = scanner.next();
@@ -83,6 +87,17 @@ public class Mahjongapp {
         printCurrentHand(currenthand);
 
 
+        System.out.println("enter restart if you enter the wrong hand otherwise enter any key");
+        String commend = scanner.next();
+        if (commend.equals("restart")){
+            entertiles();
+        }else{
+
+           Mahjong game = new Mahjong(currenthand ,round, position);
+         int score = game.getScore();
+            System.out.println("your yaku is " + score);
+        }
+
 
 
                 }
@@ -100,6 +115,6 @@ public class Mahjongapp {
         System.out.println("s1 = So1 , p2 = Pin2 , m3 = Man3");
         System.out.println("w1,2,3,4 = East , South , West, North");
         System.out.println("h1,2,3 = White, Green, Red");
-        System.out.println("enter the tiles in the above format :");
+
     }
 }
