@@ -1,5 +1,5 @@
 package model;
-
+//Represents a Pin tile with it's id ,category, Shuntsu indicator and count
 public class Pin implements Tile {
     private int idNum;
     private String category;
@@ -7,7 +7,10 @@ public class Pin implements Tile {
 
     private int count;
 
-
+    /*
+     * REQUIRES: 1>= idNum >= 9
+     * EFFECTS: construct an Pin tiles with id number count set to 0
+     */
     public Pin(int idNum) {
         this.idNum = idNum;
         category = "Pin";

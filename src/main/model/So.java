@@ -1,5 +1,5 @@
 package model;
-
+//Represents a So tile with it's id ,category, Shuntsu indicator and count
 public class So implements Tile {
 
 
@@ -9,7 +9,10 @@ public class So implements Tile {
 
     private int count;
 
-
+    /*
+     * REQUIRES: 1>= idNum >= 9
+     * EFFECTS: construct an So tiles with id number count set to 0
+     */
     public So(int idNum) {
         this.idNum = idNum;
         category = "So";

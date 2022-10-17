@@ -3,9 +3,15 @@ package model;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+//represent game of the set of 14 tiles in user's hand and environment of current round
 public class Mahjong {
     private int score;
 
+    /*
+     * REQUIRES: los.size() =14 , 4>=r >=1 , 4>= p>=1
+     * * MODIFIES this
+     * EFFECTS: construct a mahjong game with 14 tiles and round/ position number and final score from user input
+     */
     public Mahjong(ArrayList<String> los, int r, int p) {
         HashSet<Tile> hand = losToMahjongHashset(los);
         countTile(hand);
@@ -15,6 +21,12 @@ public class Mahjong {
         this.score = newgame.getScore();
     }
 
+    /*
+     * helper method of Mahjong
+     * REQUIRES: los.size() =14
+     * * MODIFIES this
+     * EFFECTS: turn my hand from user entered strings to tiles objects and place them into hashset
+     */
     public HashSet<Tile> losToMahjongHashset(ArrayList<String> los) {
         HashSet<Tile> myhands = new HashSet<>();
         for (String s : los) {
@@ -44,6 +56,11 @@ public class Mahjong {
         return myhands;
     }
 
+    /*
+     * REQUIRES: hand.size() =14
+     * * MODIFIES this
+     * EFFECTS: increase the number count of the tiles and remove duplicate
+     */
     public void countTile(HashSet<Tile> hand) {
         for (Tile s : hand) {
             if (s.getCount() >= 1) {

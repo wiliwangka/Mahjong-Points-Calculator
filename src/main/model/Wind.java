@@ -1,5 +1,5 @@
 package model;
-
+//Represents a Wind tiles with it's id ,category, Shuntsu indicator and count
 public class Wind implements Tile {
     private int idNum;
     private String category;
@@ -7,7 +7,10 @@ public class Wind implements Tile {
 
     private int count;
 
-
+    /*
+     * REQUIRES: 1>= idNum >= 4
+     * EFFECTS: construct a wind tiles with id number duplication count set to 0
+     */
     public Wind(int idNum) {
         this.idNum = idNum;
         category = "Wind";

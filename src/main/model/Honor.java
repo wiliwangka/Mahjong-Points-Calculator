@@ -1,5 +1,6 @@
 package model;
 
+//Represents an honor tiles with it's id ,category, Shuntsu indicator and count
 public class Honor implements Tile {
     private int idNum;
     private String category;
@@ -7,7 +8,10 @@ public class Honor implements Tile {
 
     private int count;
 
-
+    /*
+     * REQUIRES: 1>= idNum >= 3
+     * EFFECTS: construct an honor tiles with id number count set to 0
+     */
     public Honor(int idNum) {
         this.idNum = idNum;
         category = "Honor";

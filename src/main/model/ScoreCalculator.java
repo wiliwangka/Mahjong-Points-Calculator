@@ -1,8 +1,11 @@
 package model;
+//represent the scoring system in Riichi Mahjong
 
 import java.util.HashSet;
 
 public class ScoreCalculator {
+
+
     private int round;
     private int position;
     private int score;
@@ -16,6 +19,11 @@ public class ScoreCalculator {
     private int endtileCount;
     private HashSet<Tile> hand;
 
+    /*
+     * REQUIRES: h.size() =14 , 4>=r >=1 , 4>= p>=1
+     * * MODIFIES this
+     * EFFECTS: construct a scoring calculator with all component needed to get the final score
+     */
     public ScoreCalculator(HashSet<Tile> h, int r, int p) {
         this.hand = h;
         this.round = r;
@@ -32,6 +40,13 @@ public class ScoreCalculator {
 
     }
 
+    /*
+
+     * * MODIFIES this
+     * EFFECTS: at current stage:add up and indicate if the hand contain tanyao yaku
+     ,if no yaku is presented than yaku = 0
+
+     */
     public void computeScore() {
         for (Tile t : hand) {
             if (t.getCount() == 2) {
@@ -45,11 +60,50 @@ public class ScoreCalculator {
         if (endtileCount == 0) {
             yaku += 1;
         }
-        // keep score = yaku for now when scoring system is incomplete
+        // keep score = yaku for now as the scoring system is incomplete
         score = yaku;
     }
 
     public int getScore() {
         return score;
+    }
+    public int getRound() {
+        return round;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public int getYaku() {
+        return yaku;
+    }
+
+    public int getFu() {
+        return fu;
+    }
+
+    public int getKoutsuCount() {
+        return koutsuCount;
+    }
+
+    public int getShuntsuCount() {
+        return shuntsuCount;
+    }
+
+    public int getPairCount() {
+        return pairCount;
+    }
+
+    public int getEyeCount() {
+        return eyeCount;
+    }
+
+    public int getEndtileCount() {
+        return endtileCount;
+    }
+
+    public HashSet<Tile> getHand() {
+        return hand;
     }
 }
