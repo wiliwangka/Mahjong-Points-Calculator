@@ -18,7 +18,7 @@ public class Mahjongapp {
         userInput();
     }
 
-
+    //REQUIRE input that follows the input instruction on displaymenu()
     // MODIFIES: this
     //EFFECTS: receive user input for round and position
     private void userInput() {
