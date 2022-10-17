@@ -1,4 +1,5 @@
 package model;
+
 //Represents a Pin tile with it's id ,category, Shuntsu indicator and count
 public class Pin implements Tile {
     private int idNum;

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,11 +14,11 @@ class MahjongTest {
 
     @BeforeEach
     void runBefore() {
-        userInput = new ArrayList<String>();
+        userInput = new ArrayList<>();
     }
 
     @Test
-    void testMahjongnoscore() {
+    void testMahjongNoScore() {
         userInput.add("s2");
         userInput.add("s2");
         userInput.add("s2");

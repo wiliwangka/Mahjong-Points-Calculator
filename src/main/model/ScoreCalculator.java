@@ -67,6 +67,7 @@ public class ScoreCalculator {
     public int getScore() {
         return score;
     }
+
     public int getRound() {
         return round;
     }

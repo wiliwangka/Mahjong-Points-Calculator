@@ -1,4 +1,5 @@
 package model;
+
 //Represents a Wind tiles with it's id ,category, Shuntsu indicator and count
 public class Wind implements Tile {
     private int idNum;

@@ -1,4 +1,5 @@
 package model;
+
 //Represents a So tile with it's id ,category, Shuntsu indicator and count
 public class So implements Tile {
 

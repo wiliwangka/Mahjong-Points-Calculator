@@ -1,4 +1,5 @@
 package model;
+
 //Represents a Man tile with it's id ,category, Shuntsu indicator and count
 public class Man implements Tile {
     private int idNum;

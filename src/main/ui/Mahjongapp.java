@@ -72,7 +72,7 @@ public class Mahjongapp {
 
     }
 
-     // EFFECTS: provide instruction for the format of entering tiles
+    // EFFECTS: provide instruction for the format of entering tiles
     private void displayMenu() {
 
         System.out.println("s1 = So1 , p2 = Pin2 , m3 = Man3");
