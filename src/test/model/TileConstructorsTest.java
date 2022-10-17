@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class TileConstructorsTest {
@@ -29,6 +30,11 @@ public class TileConstructorsTest {
         assertEquals(1, w.getIdNum());
         assertEquals("Wind", w.getCatergory());
         assertEquals(0, w.getCount());
+        w.increaseCount();
+        assertEquals(1, w.getCount());
+        w.decreaseCount();
+        assertEquals(0, w.getCount());
+        assertFalse(w.isStartShuntsu());
     }
 
 
@@ -38,6 +44,11 @@ public class TileConstructorsTest {
         assertEquals(2, h.getIdNum());
         assertEquals("Honor", h.getCatergory());
         assertEquals(0, h.getCount());
+        h.increaseCount();
+        assertEquals(1, h.getCount());
+        h.decreaseCount();
+        assertEquals(0, h.getCount());
+        assertFalse(h.isStartShuntsu());
     }
 
     @Test
@@ -46,6 +57,11 @@ public class TileConstructorsTest {
         assertEquals(3, p.getIdNum());
         assertEquals("Pin", p.getCatergory());
         assertEquals(0, p.getCount());
+        p.increaseCount();
+        assertEquals(1, p.getCount());
+        p.decreaseCount();
+        assertEquals(0, p.getCount());
+        assertFalse(p.isStartShuntsu());
     }
 
     @Test
@@ -54,6 +70,11 @@ public class TileConstructorsTest {
         assertEquals(4, s.getIdNum());
         assertEquals("So", s.getCatergory());
         assertEquals(0, s.getCount());
+        s.increaseCount();
+        assertEquals(1, s.getCount());
+        s.decreaseCount();
+        assertEquals(0, s.getCount());
+        assertFalse(s.isStartShuntsu());
     }
 
     @Test
@@ -62,5 +83,10 @@ public class TileConstructorsTest {
         assertEquals(5, m.getIdNum());
         assertEquals("Man", m.getCatergory());
         assertEquals(0, m.getCount());
+        m.increaseCount();
+        assertEquals(1, m.getCount());
+        m.decreaseCount();
+        assertEquals(0, m.getCount());
+        assertFalse(m.isStartShuntsu());
     }
 }

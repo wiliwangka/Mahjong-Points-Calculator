@@ -4,6 +4,9 @@ package model;
 public class Wind implements Tile {
     private int idNum;
     private String category;
+
+
+
     private boolean startShuntsu;
 
     private int count;
@@ -41,5 +44,9 @@ public class Wind implements Tile {
 
     public void decreaseCount() {
         count -= 1;
+    }
+
+    public boolean isStartShuntsu() {
+        return startShuntsu;
     }
 }

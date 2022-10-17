@@ -42,4 +42,8 @@ public class Man implements Tile {
     public void decreaseCount() {
         count -= 1;
     }
+
+    public boolean isStartShuntsu() {
+        return startShuntsu;
+    }
 }

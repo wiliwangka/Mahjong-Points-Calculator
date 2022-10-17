@@ -20,5 +20,7 @@ public interface Tile {
     //EFFECTS:decrease the number of Counts
     void decreaseCount();
 
+    //EFFECTS: show if a tile is the start of three consequtive tile
+    boolean isStartShuntsu();
 
 }
