@@ -1,5 +1,5 @@
 package model;
 
-public class MyModel {
+public class Mahjong {
     // delete or rename this class!
 }

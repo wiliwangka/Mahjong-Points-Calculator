@@ -21,5 +21,5 @@ allow players to enjoy more of the game itself instead of worrying about under/ 
 ___
 - As a user, I want to add tile into a list of tiles that represent my winning hand
 - As a user, I want to be able to delete a tile that is misplaced into the list of tiles
-- As a user, I want to know how many **Yaku** (unit for points) and the final points for my hand
-
+- As a user, I want to know how many points does my hand worth when knowing the **Yaku** and **Fu**  (unit for points) 
+- As a user,I want to indicate my current position and wind of the round.
