@@ -6,7 +6,6 @@ public class Wind implements Tile {
     private String category;
 
 
-
     private boolean startShuntsu;
 
     private int count;
