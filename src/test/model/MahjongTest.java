@@ -19,6 +19,7 @@ class MahjongTest {
 
     @Test
     void testMahjongNoScore() {
+
         userInput.add("s2");
         userInput.add("s2");
         userInput.add("s2");
