@@ -55,7 +55,7 @@ public class ScoreCalculatorTest {
     @Test
     void testComputeScoreWithNoYaku() {
 
-       ArrayList<Tile> nokayu = new ArrayList<Tile>();
+        ArrayList<Tile> nokayu = new ArrayList<Tile>();
         nokayu.add(new Man(8));
         nokayu.add(new Man(8));
         nokayu.add(new Man(8));
@@ -109,7 +109,7 @@ public class ScoreCalculatorTest {
         assertEquals(0, nopairgame.getEyeCount());
     }
 
-//    @Test
+    //    @Test
 //    void testMultiplePairAndEye() {
 //        hand.clear();
 //        hand.add(new Man(8));
@@ -134,8 +134,8 @@ public class ScoreCalculatorTest {
 //    }
     @Test
     void testsevenpairs() {
-       ArrayList<String> handforsevenpairs = new ArrayList<String>();
-       handforsevenpairs.add("m8");
+        ArrayList<String> handforsevenpairs = new ArrayList<String>();
+        handforsevenpairs.add("m8");
         handforsevenpairs.add("m8");
         handforsevenpairs.add("m7");
         handforsevenpairs.add("m7");
@@ -150,9 +150,9 @@ public class ScoreCalculatorTest {
         handforsevenpairs.add("m2");
         handforsevenpairs.add("m2");
 
-           Mahjong newgame = new Mahjong(handforsevenpairs, 1,2);
-           newgame.mahjongGame();
-           ArrayList<Tile> handforcalculator = newgame.getHand();
+        Mahjong newgame = new Mahjong(handforsevenpairs, 1, 2);
+        newgame.mahjongGame();
+        ArrayList<Tile> handforcalculator = newgame.getHand();
 
 
         ScoreCalculator game = new ScoreCalculator(handforcalculator, 2, 3);

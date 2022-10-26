@@ -28,7 +28,6 @@ class MahjongTest {
         userInput.add("p8");
 
 
-
     }
 
     @Test
@@ -39,7 +38,7 @@ class MahjongTest {
         userInput.add("w1");
         userInput.add("w1");
         game = new Mahjong(userInput, 1, 1);
-         game.mahjongGame();
+        game.mahjongGame();
         assertEquals(0, game.getScore());
     }
 
@@ -56,7 +55,7 @@ class MahjongTest {
     }
 
     @Test
-    void testCountTiles () {
+    void testCountTiles() {
         userInput.add("s4");
         userInput.add("s4");
         userInput.add("s4");
@@ -64,37 +63,37 @@ class MahjongTest {
         userInput.add("m2");
         game = new Mahjong(userInput, 1, 1);
         game.mahjongGame();
-     assertEquals (3, game.getHand().get(0).getCount());
-     assertTrue(2==game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("So"));
-     assertEquals (1, game.getHand().get(3).getCount());
-        assertTrue(3==game.getHand().get(3).getIdNum() && game.getHand().get(3).getCatergory().equals("Man"));
+        assertEquals(3, game.getHand().get(0).getCount());
+        assertTrue(2 == game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("So"));
+        assertEquals(1, game.getHand().get(3).getCount());
+        assertTrue(3 == game.getHand().get(3).getIdNum() && game.getHand().get(3).getCatergory().equals("Man"));
 
-        assertEquals(0 , new Wind (4).getCount());
+        assertEquals(0, new Wind(4).getCount());
 
     }
-@Test
 
+    @Test
     void testNoDuplicateTiles() {
         userInput.clear();
-    userInput.add("s2");
-    userInput.add("s3");
-    userInput.add("s4");
-    userInput.add("m3");
-    userInput.add("m4");
-    userInput.add("m5");
-    userInput.add("s6");
-    userInput.add("s7");
-    userInput.add("s8");
-    userInput.add("p4");
-    userInput.add("p5");
-    userInput.add("p6");
-    userInput.add("h2");
-    userInput.add("h3");
-    game = new Mahjong(userInput, 1, 1);
-    game.mahjongGame();
-    assertEquals (1, game.getHand().get(1).getCount());
-    assertTrue(2==game.getHand().get(0).getIdNum() && game.getHand().get(0).getCatergory().equals("So"));
+        userInput.add("s2");
+        userInput.add("s3");
+        userInput.add("s4");
+        userInput.add("m3");
+        userInput.add("m4");
+        userInput.add("m5");
+        userInput.add("s6");
+        userInput.add("s7");
+        userInput.add("s8");
+        userInput.add("p4");
+        userInput.add("p5");
+        userInput.add("p6");
+        userInput.add("h2");
+        userInput.add("h3");
+        game = new Mahjong(userInput, 1, 1);
+        game.mahjongGame();
+        assertEquals(1, game.getHand().get(1).getCount());
+        assertTrue(2 == game.getHand().get(0).getIdNum() && game.getHand().get(0).getCatergory().equals("So"));
 
-}
+    }
 
 }
