@@ -73,7 +73,7 @@ class MahjongTest {
     }
 
     @Test
-    void testVariantofTiles(){
+    void testVariantofTiles() {
         userInput.clear();
         userInput.add("s1");
         userInput.add("s5");
