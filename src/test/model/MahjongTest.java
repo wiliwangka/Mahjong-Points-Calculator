@@ -51,7 +51,6 @@ class MahjongTest {
         userInput.add("m2");
         userInput.add("m2");
         game = new Mahjong(userInput, 1, 1);
-
         assertEquals(1, game.getScore());
     }
 
