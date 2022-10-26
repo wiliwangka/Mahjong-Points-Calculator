@@ -6,7 +6,7 @@ import java.util.HashSet;
 //represent game of the set of 14 tiles in user's hand and environment of current round
 public class Mahjong {
     private int score;
-
+// add hashset<tile> as a field
     /*
      * REQUIRES: los.size() =14 , 4>=r >=1 , 4>= p>=1
      * * MODIFIES this
