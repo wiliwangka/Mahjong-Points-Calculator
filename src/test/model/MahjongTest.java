@@ -23,9 +23,9 @@ class MahjongTest {
         userInput.add("m3");
         userInput.add("m4");
         userInput.add("m5");
-        userInput.add("s6");
-        userInput.add("s7");
-        userInput.add("s8");
+        userInput.add("p6");
+        userInput.add("p7");
+        userInput.add("p8");
 
 
 
@@ -82,11 +82,11 @@ class MahjongTest {
     userInput.add("s6");
     userInput.add("s7");
     userInput.add("s8");
-    userInput.add("s4");
-    userInput.add("s5");
-    userInput.add("s6");
-    userInput.add("m2");
-    userInput.add("m3");
+    userInput.add("p4");
+    userInput.add("p5");
+    userInput.add("p6");
+    userInput.add("h2");
+    userInput.add("h3");
     game = new Mahjong(userInput, 1, 1);
     assertEquals (1, game.getHand().get(1).getCount());
     assertTrue(2==game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("So"));

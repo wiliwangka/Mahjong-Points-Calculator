@@ -82,7 +82,7 @@ public class ScoreCalculatorTest {
     }
 
     @Test
-    void testPairAndEyeCounter() {
+    void testNoPairAndEye() {
         hand.clear();
         hand.add(new Man(8));
         hand.add(new Man(8));
@@ -102,6 +102,29 @@ public class ScoreCalculatorTest {
         ScoreCalculator nopairgame = new ScoreCalculator(hand, 2, 3);
         assertEquals(0, nopairgame.getPairCount());
         assertEquals(0, nopairgame.getEyeCount());
+    }
+
+    @Test
+    void testMultiplePairAndEye() {
+        hand.clear();
+        hand.add(new Man(8));
+        hand.add(new Man(8));
+        hand.add(new Man(7));
+        hand.add(new Man(7));
+        hand.add(new So(6));
+        hand.add(new So(6));
+        hand.add(new Pin(2));
+        hand.add(new Pin(2));
+        hand.add(new Pin(2));
+        hand.add(new So(5));
+        hand.add(new So(6));
+        hand.add(new So(7));
+        hand.add(new Pin(8));
+        hand.add(new Pin(8));
+        hand.add(new Pin(8));
+        ScoreCalculator nopairgame = new ScoreCalculator(hand, 2, 3);
+        assertEquals(3, nopairgame.getPairCount());
+        assertEquals(3, nopairgame.getEyeCount());
     }
 
 }
