@@ -61,7 +61,7 @@ public class ScoreCalculator {
         if (endtileCount == 0) {
             yaku += 1;
         }
-        if (pairCount == 7) {
+        if (pairCount / 2 == 7) {
             yaku += 1;
         }
         // keep score = yaku for now as the scoring system is incomplete

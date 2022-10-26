@@ -57,6 +57,7 @@ public class Mahjongapp {
         } else {
 
             Mahjong game = new Mahjong(currenthand, round, position);
+            game.mahjongGame();
             int score = game.getScore();
             System.out.println("your yaku is " + score);
         }
