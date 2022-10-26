@@ -67,6 +67,7 @@ class MahjongTest {
      assertTrue(2==game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("So"));
      assertEquals (1, game.getHand().get(2).getCount());
         assertTrue(3==game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("Man"));
+        assertEquals(9,game.getHand().size());
 
     }
 @Test
