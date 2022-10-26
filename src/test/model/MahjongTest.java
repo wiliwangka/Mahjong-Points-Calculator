@@ -33,10 +33,10 @@ class MahjongTest {
     @Test
     void testMahjongNoScore() {
         userInput.add("h1");
-        userInput.add("h1");
-        userInput.add("h1");
+        userInput.add("h2");
+        userInput.add("h3");
         userInput.add("w1");
-        userInput.add("w1");
+        userInput.add("w2");
         game = new Mahjong(userInput, 1, 1);
         game.mahjongGame();
         assertEquals(0, game.getScore());
@@ -56,9 +56,9 @@ class MahjongTest {
 
     @Test
     void testCountTiles() {
-        userInput.add("s4");
-        userInput.add("s4");
-        userInput.add("s4");
+        userInput.add("w2");
+        userInput.add("w3");
+        userInput.add("w4");
         userInput.add("m2");
         userInput.add("m2");
         game = new Mahjong(userInput, 1, 1);
@@ -70,6 +70,28 @@ class MahjongTest {
 
         assertEquals(0, new Wind(4).getCount());
 
+    }
+
+    @Test
+    void testVariantofTiles(){
+        userInput.clear();
+        userInput.add("s1");
+        userInput.add("s5");
+        userInput.add("s9");
+        userInput.add("m1");
+        userInput.add("m9");
+        userInput.add("p1");
+        userInput.add("p2");
+        userInput.add("p3");
+        userInput.add("p9");
+        userInput.add("w2");
+        userInput.add("w3");
+        userInput.add("w4");
+        userInput.add("w1");
+        userInput.add("h3");
+        game = new Mahjong(userInput, 1, 1);
+        game.mahjongGame();
+        assertEquals(0, game.getScore());
     }
 
     @Test
