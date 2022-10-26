@@ -89,4 +89,14 @@ public class TileConstructorsTest {
         assertEquals(0, m.getCount());
         assertFalse(m.isStartShuntsu());
     }
+
+    @Test
+    void testStartOfShuntsu () {
+        assertFalse(w.startOfShuntsu());
+        assertFalse(h.startOfShuntsu());
+        assertFalse(p.startOfShuntsu());
+        assertFalse(s.startOfShuntsu());
+        assertFalse(m.startOfShuntsu());
+
+    }
 }

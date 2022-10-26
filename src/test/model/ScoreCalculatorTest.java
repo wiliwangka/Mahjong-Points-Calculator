@@ -3,16 +3,17 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ScoreCalculatorTest {
-    private HashSet<Tile> hand;
+    private ArrayList<Tile> hand;
 
     @BeforeEach
     void runBefore() {
-        hand = new HashSet<Tile>();
+        hand = new ArrayList<Tile>();
         hand.add(new Man(8));
         hand.add(new Man(8));
         hand.add(new Man(8));
@@ -49,8 +50,8 @@ public class ScoreCalculatorTest {
 
     @Test
     void testComputeScoreWithNoYaku() {
-        HashSet<Tile> nokayu = new HashSet<Tile>();
-        nokayu = new HashSet<Tile>();
+
+       ArrayList<Tile> nokayu = new ArrayList<Tile>();
         nokayu.add(new Man(8));
         nokayu.add(new Man(8));
         nokayu.add(new Man(8));
@@ -68,6 +69,8 @@ public class ScoreCalculatorTest {
         ScoreCalculator nokayugame = new ScoreCalculator(nokayu, 2, 3);
         nokayugame.computeScore();
         assertEquals(0, nokayugame.getYaku());
+        assertEquals(1, nokayugame.getPairCount());
+        assertEquals(1, nokayugame.getEyeCount());
     }
 
     @Test

@@ -1,7 +1,7 @@
 package model;
 //represent the scoring system in Riichi Mahjong
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class ScoreCalculator {
 
@@ -17,14 +17,14 @@ public class ScoreCalculator {
     private int eyeCount;
 
     private int endtileCount;
-    private HashSet<Tile> hand;
+    private ArrayList<Tile> hand;
 
     /*
      * REQUIRES: h.size() =14 , 4>=r >=1 , 4>= p>=1
      * * MODIFIES this
      * EFFECTS: construct a scoring calculator with all component needed to get the final score
      */
-    public ScoreCalculator(HashSet<Tile> h, int r, int p) {
+    public ScoreCalculator(ArrayList<Tile> h, int r, int p) {
         this.hand = h;
         this.round = r;
         this.position = p;
@@ -104,7 +104,7 @@ public class ScoreCalculator {
         return endtileCount;
     }
 
-    public HashSet<Tile> getHand() {
+    public ArrayList<Tile> getHand() {
         return hand;
     }
 }
