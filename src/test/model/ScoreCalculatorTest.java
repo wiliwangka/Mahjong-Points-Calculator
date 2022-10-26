@@ -126,6 +126,27 @@ public class ScoreCalculatorTest {
         assertEquals(3, nopairgame.getPairCount());
         assertEquals(3, nopairgame.getEyeCount());
     }
+    @Test
+    void testsevenpairs() {
+        hand.clear();
+        hand.add(new Man(8));
+        hand.add(new Man(8));
+        hand.add(new Man(7));
+        hand.add(new Man(7));
+        hand.add(new So(6));
+        hand.add(new So(6));
+        hand.add(new Pin(2));
+        hand.add(new Pin(2));
+        hand.add(new So(5));
+        hand.add(new So(5));
+        hand.add(new So(6));
+        hand.add(new So(6));
+        hand.add(new Pin(8));
+        hand.add(new Pin(8));
 
+        ScoreCalculator nopairgame = new ScoreCalculator(hand, 2, 3);
+        assertEquals(3, nopairgame.getPairCount());
+        assertEquals(3, nopairgame.getEyeCount());
+    }
 }
 

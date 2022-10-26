@@ -53,11 +53,15 @@ public class ScoreCalculator {
                 pairCount += 1;
                 eyeCount += 1;
             }
+
             if (t.getIdNum() == 1 || t.getIdNum() == 9 || t.getCatergory() == "Honor" || t.getCatergory() == "Wind") {
                 endtileCount += 1;
             }
         }
         if (endtileCount == 0) {
+            yaku += 1;
+        }
+        if (pairCount == 7) {
             yaku += 1;
         }
         // keep score = yaku for now as the scoring system is incomplete
