@@ -96,6 +96,8 @@ class MahjongTest {
         assertEquals (9 , game.getHand().get(8).getIdNum());
         assertEquals (3 , game.getHand().get(13).getIdNum());
         assertEquals (4 , game.getHand().get(11).getIdNum());
+
+        assertEquals ("Honor" , game.getHand().get(13).getCatergory());
     }
 
     @Test
@@ -119,6 +121,14 @@ class MahjongTest {
         game.mahjongGame();
         assertEquals(1, game.getHand().get(1).getCount());
         assertTrue(2 == game.getHand().get(0).getIdNum() && game.getHand().get(0).getCatergory().equals("So"));
+
+    }
+    @Test
+    void testLosToArrayListofTiles(){
+        userInput.add("h3");
+        userInput.add("h3");
+
+
 
     }
 
