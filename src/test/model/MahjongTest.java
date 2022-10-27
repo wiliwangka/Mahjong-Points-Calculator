@@ -98,6 +98,7 @@ class MahjongTest {
         assertEquals (4 , game.getHand().get(11).getIdNum());
 
         assertEquals ("Honor" , game.getHand().get(13).getCatergory());
+        assertEquals(0, game.getScore());
     }
 
     @Test
