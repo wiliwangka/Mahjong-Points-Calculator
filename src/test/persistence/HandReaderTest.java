@@ -3,9 +3,7 @@ package persistence;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -26,8 +24,12 @@ public class HandReaderTest {
 
     @Test
     void testReaderEmptyHand() {
-        HandReader reader = new HandReader("./data/testWriterEmptyHand.json");
+        HandReader reader = new HandReader("./data/testReaderEmptyHand.json");
         try {
+
+
+
+
             ArrayList<String> hand = reader.read();
             assertEquals(0, hand.size());
         } catch (IOException e) {
@@ -37,15 +39,16 @@ public class HandReaderTest {
 
     @Test
     void testReaderGeneralWorkRoom() {
-        HandReader reader = new HandReader("./data/testWriterGeneralHand.json");
+        HandReader reader = new HandReader("./data/testReaderrGeneralHand.json");
         try {
+
             ArrayList<String> hand = reader.read();
-            assertEquals("s1", hand.get(0));
-            assertEquals("s9", hand.get(8));
-            assertEquals("h2", hand.get(13));
-            assertEquals("w1", hand.get(10));
-            assertEquals("s3", hand.get(2));
-            assertEquals("s6", hand.get(5));
+            assertEquals("m1", hand.get(0));
+            assertEquals("m9", hand.get(8));
+            assertEquals("h1", hand.get(13));
+            assertEquals("w2", hand.get(10));
+            assertEquals("m3", hand.get(2));
+            assertEquals("m6", hand.get(5));
             assertEquals(14, hand.size());
 
         } catch (IOException e) {

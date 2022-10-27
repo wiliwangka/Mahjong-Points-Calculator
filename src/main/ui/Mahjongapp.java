@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//reference for the safe hand and load hand method
+//reference for the safe hand and load hand method form:
+//https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 //Mahjong score calculating application
 public class Mahjongapp {
 
