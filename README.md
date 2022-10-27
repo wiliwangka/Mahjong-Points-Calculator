@@ -23,4 +23,5 @@ ___
 - As a user, I want to restart my tile enters if I made mistakes  
 - As a user, I want to know how many yaku is my hand.
 - As a user,I want to indicate my current position and wind of the round.
-- As a user, I want to the calculater to recognize tanyao(no end tiles ) is one yaku
+- As a user, I want to the calculater to recognize tanyao(no end tiles) ,Chiitoitsu (7 pairs) as yaku
+- As a user, I want to be able to restore my hand and calculate it's point later

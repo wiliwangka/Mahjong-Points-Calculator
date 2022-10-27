@@ -31,12 +31,12 @@ public class HandReader {
 
         ArrayList<String> list = new ArrayList<String>();
         JSONArray jsonArray = new JSONArray(jsonData);
-        if (jsonArray != null) {
-            int len = jsonArray.length();
-            for (int i = 0; i < len; i++) {
-                list.add(jsonArray.get(i).toString());
-            }
+
+        int len = jsonArray.length();
+        for (int i = 0; i < len; i++) {
+            list.add(jsonArray.get(i).toString());
         }
+
         return list;
     }
 
