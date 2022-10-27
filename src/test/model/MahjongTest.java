@@ -60,12 +60,16 @@ class MahjongTest {
         userInput.add("w4");
         userInput.add("m2");
         userInput.add("m2");
+        userInput.add("h1");
         game = new Mahjong(userInput, 1, 1);
         game.mahjongGame();
         assertEquals(3, game.getHand().get(0).getCount());
         assertTrue(2 == game.getHand().get(1).getIdNum() && game.getHand().get(1).getCatergory().equals("So"));
         assertEquals(1, game.getHand().get(3).getCount());
         assertTrue(3 == game.getHand().get(3).getIdNum() && game.getHand().get(3).getCatergory().equals("Man"));
+        assertEquals(1, game.getHand().get(14).getCount());
+        assertTrue(1 == game.getHand().get(14).getIdNum() && game.getHand().get(14).getCatergory().equals("Honor"));
+
 
         assertEquals(0, new Wind(4).getCount());
 
@@ -125,10 +129,21 @@ class MahjongTest {
 
     }
     @Test
-    void testLosToArrayListofTiles(){
-        userInput.add("h3");
-        userInput.add("h3");
-
+    void testInvalidTilesEnter(){
+        userInput.clear();
+        userInput.add("s10");
+        userInput.add("p10");
+        userInput.add("m10");
+        userInput.add("w5");
+        userInput.add("h4");
+        userInput.add("S1");
+        userInput.add("P1");
+        userInput.add("M1");
+        userInput.add("W1");
+        userInput.add("H1");
+        game = new Mahjong(userInput, 1, 1);
+        game.mahjongGame();
+        assertEquals(0, game.getHand().size());
 
 
     }
