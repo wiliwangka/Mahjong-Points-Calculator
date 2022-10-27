@@ -1,10 +1,9 @@
 package persistence;
 
 import org.json.JSONArray;
-
-
 import java.io.*;
 import java.util.ArrayList;
+
 
 //reference: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 // Represents a writer that writes JSON representation of workroom to file

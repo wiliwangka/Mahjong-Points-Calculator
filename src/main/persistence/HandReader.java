@@ -9,7 +9,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-import org.json.*;
+import org.json.JSONArray;
+
 
 // Represents a reader that reads workroom from JSON data stored in file
 public class HandReader {
@@ -24,8 +25,7 @@ public class HandReader {
 
     public ArrayList<String> read() throws IOException {
         String jsonData = readFile(source);
-//        JSONObject jsonObject = new JSONObject(jsonData);
-//        return parseWorkRoom(jsonObject);
+
 
         ArrayList<String> list = new ArrayList<String>();
         JSONArray jsonArray = new JSONArray(jsonData);
