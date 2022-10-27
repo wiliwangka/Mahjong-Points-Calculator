@@ -27,7 +27,6 @@ class MahjongTest {
         userInput.add("p7");
         userInput.add("p8");
 
-
     }
 
     @Test
@@ -92,6 +91,11 @@ class MahjongTest {
         game = new Mahjong(userInput, 1, 1);
         game.mahjongGame();
         assertEquals(0, game.getScore());
+        assertEquals (9 , game.getHand().get(2).getIdNum());
+        assertEquals (9 , game.getHand().get(4).getIdNum());
+        assertEquals (9 , game.getHand().get(8).getIdNum());
+        assertEquals (3 , game.getHand().get(13).getIdNum());
+        assertEquals (4 , game.getHand().get(11).getIdNum());
     }
 
     @Test
