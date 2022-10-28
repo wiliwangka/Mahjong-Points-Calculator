@@ -43,19 +43,25 @@ public class Mahjongapp {
         System.out.println("enter l to load from previous input or s to start new input");
         String loadornot = scanner.next();
         if (loadornot.equals("l")) {
+            windAndPosition();
             loadHand();
             furtherCommend();
         } else if (loadornot.equals("s")) {
+            windAndPosition();
 
-            System.out.println("please indicate current round in 1 2 3 4 for E S W N :");
-            round = Integer.parseInt(scanner.next());
-            System.out.println("please enter current position 1 2 3 4 for E S W N");
-            position = Integer.parseInt(scanner.next());
-            System.out.println("round = " + round + ", position = " + position);
-            System.out.println();
             displayMenu(1);
             entertiles();
         }
+    }
+
+    //Effect take and set the value for round wind and player position
+    private void windAndPosition() {
+        System.out.println("please indicate current round in 1 2 3 4 for E S W N :");
+        round = Integer.parseInt(scanner.next());
+        System.out.println("please enter current position 1 2 3 4 for E S W N");
+        position = Integer.parseInt(scanner.next());
+        System.out.println("round = " + round + ", position = " + position);
+        System.out.println();
     }
 
     // MODIFIES: this
@@ -78,6 +84,7 @@ public class Mahjongapp {
 
     }
 
+    //Effect take commend such as restart,save,load,quit,calculate,print and execute them
     private void furtherCommend() {
         displayMenu(2);
         String commend = scanner.next();
@@ -114,6 +121,8 @@ public class Mahjongapp {
 
     // EFFECTS: provide instruction for the format of entering tiles
     private void displayMenu(int i) {
+
+
         if (i == 1) {
             System.out.println("s1 = So1 , p2 = Pin2 , m3 = Man3");
             System.out.println("w1,2,3,4 = East , South , West, North");
