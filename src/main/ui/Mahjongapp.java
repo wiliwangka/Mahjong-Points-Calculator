@@ -8,6 +8,7 @@ import persistence.HandWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,6 +34,7 @@ public class Mahjongapp {
     public Mahjongapp() {
         handWriter = new HandWriter(JSON_STORE);
         handReader = new HandReader(JSON_STORE);
+        introductions();
         userInput();
     }
 
@@ -54,11 +56,12 @@ public class Mahjongapp {
         }
     }
 
+
     //Effect take and set the value for round wind and player position
     private void windAndPosition() {
-        System.out.println("please indicate current round in 1 2 3 4 for E S W N :");
+        System.out.println("please indicate current round in 1 2 3 4 for East South West North position:");
         round = Integer.parseInt(scanner.next());
-        System.out.println("please enter current position 1 2 3 4 for E S W N");
+        System.out.println("please enter current position 1 2 3 4 East South West North position");
         position = Integer.parseInt(scanner.next());
         System.out.println("round = " + round + ", position = " + position);
         System.out.println();
@@ -149,6 +152,19 @@ public class Mahjongapp {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
+    }
+
+    private void introductions() {
+        System.out.println("\n mahjong is a game that require player "
+                + "to complete a set of 14 tiles according to the general rules listed below:");
+        System.out.println("\t 1. must contain a eye(a set of two identical tiles) ");
+        System.out.println("\t 2.rest of 12 tiles must be either Triplet  or Shuntsu ");
+        System.out.println("\t -Triplet is a set of three identical tiles from any catergory of tiles");
+        System.out.println("\t -Shuntsu  is a set of three consequtive tiles(example: tiles with ID <1,2,3>");
+        System.out.println("\t , <5,6,7> of only category Man , Pin ,or So tiles))  ");
+        System.out.println();
+
+
     }
 
     // MODIFIES: this
