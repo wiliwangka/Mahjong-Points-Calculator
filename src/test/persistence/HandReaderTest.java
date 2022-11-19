@@ -1,6 +1,7 @@
 package persistence;
 
 import org.junit.jupiter.api.Test;
+import ui.Mahjongapp;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,13 +14,12 @@ public class HandReaderTest {
     void testReaderNonExistentFile() {
         HandReader reader = new HandReader("./data/noSuchFile.json");
         try {
-            ArrayList<String> hand = reader.read();
+            Mahjongapp app = reader.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass if check exception
         }
     }
-
 
 
     @Test
@@ -28,10 +28,9 @@ public class HandReaderTest {
         try {
 
 
-
-
-            ArrayList<String> hand = reader.read();
-            assertEquals(0, hand.size());
+            Mahjongapp app = reader.read();
+            assertEquals(0, app.getOpenedhand().size());
+            assertEquals(0, app.getClosedhand().size());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -42,14 +41,14 @@ public class HandReaderTest {
         HandReader reader = new HandReader("./data/testReaderrGeneralHand.json");
         try {
 
-            ArrayList<String> hand = reader.read();
-            assertEquals("m1", hand.get(0));
-            assertEquals("m9", hand.get(8));
-            assertEquals("h1", hand.get(13));
-            assertEquals("w2", hand.get(10));
-            assertEquals("m3", hand.get(2));
-            assertEquals("m6", hand.get(5));
-            assertEquals(14, hand.size());
+            Mahjongapp app= reader.read();
+            assertEquals("m1", app.getClosedhand().get(0));
+            assertEquals("m9", app.getClosedhand().get(8));
+            assertEquals("h1", app.getClosedhand().get(13));
+            assertEquals("w2", app.getClosedhand().get(10));
+            assertEquals("m3", app.getClosedhand().get(2));
+            assertEquals("m6", app.getClosedhand().get(5));
+            assertEquals(14, app.getClosedhand().size());
 
         } catch (IOException e) {
             fail("Couldn't read from file");

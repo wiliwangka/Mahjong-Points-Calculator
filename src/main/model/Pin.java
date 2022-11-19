@@ -1,11 +1,13 @@
 package model;
 
+import java.util.Objects;
+
 //Represents a Pin tile with it's id ,category, Shuntsu indicator and count
 public class Pin implements Tile {
     private int idNum;
     private String category;
     private boolean startShuntsu;
-
+    private boolean isInShuntsu;
     private int count;
 
     /*
@@ -43,7 +45,32 @@ public class Pin implements Tile {
         count -= 1;
     }
 
-    public boolean isStartShuntsu() {
-        return startShuntsu;
+    public void setStartShuntsu(boolean b) {
+        startShuntsu = b;
+    }
+
+    public void setInShuntsu(boolean b) {
+        isInShuntsu = b;
+    }
+
+    public boolean isInShuntsu() {
+        return isInShuntsu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Pin pin = (Pin) o;
+        return idNum == pin.idNum && category.equals(pin.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idNum, category);
     }
 }

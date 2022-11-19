@@ -1,15 +1,23 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
 //represent game of the set of 14 tiles in user's hand and environment of current round
 public class Mahjong {
+    private boolean closedstatus;
     private int score;
-    private ArrayList<Tile> hand;
 
-    private ArrayList<String> userinput;
+    private ArrayList<Tile> openedhand;
+    private ArrayList<Tile> closedhand;
+
+    private ArrayList<String> userinputopened;
+    private ArrayList<String> userinputclosed;
 
     private int round;
     private int position;
@@ -60,10 +68,13 @@ public class Mahjong {
      * * MODIFIES this
      * EFFECTS: construct a mahjong game with 14 tiles and round/ position number and final score from user input
      */
-    public Mahjong(ArrayList<String> los, int r, int p) {
-        userinput = los;
+    public Mahjong(ArrayList<String> closed, ArrayList<String> opened, int r, int p) {
+        userinputopened = opened;
+        userinputclosed = closed;
         round = r;
         position = p;
+        closedstatus = false;
+        mahjongGame();
     }
 
     /*
@@ -72,13 +83,18 @@ public class Mahjong {
 
      */
     public void mahjongGame() {
-        losToArrayListofTiles(userinput);
+        losToArrayListofTiles(userinputclosed, "c");
+        losToArrayListofTiles(userinputopened, "o");
+        setStartShuntsu("c");
+        setStartShuntsu("o");
 
 
-        ScoreCalculator newgame = new ScoreCalculator(hand, round, position);
-        newgame.computeScore();
-        this.score = newgame.getScore();
+//        ScoreCalculator newgame = new ScoreCalculator(this);
+//        newgame.computeScore();
+//        this.score = newgame.getScore();
     }
+
+
     /*
      * helper method of Mahjong
      * REQUIRES: los.size() =14
@@ -87,8 +103,15 @@ public class Mahjong {
      */
 
 
-    public void losToArrayListofTiles(ArrayList<String> los) {
-        hand = new ArrayList<>();
+    public void losToArrayListofTiles(ArrayList<String> los, String c) {
+        if (c.equals("c")) {
+            closedhand = new ArrayList<>();
+            closedstatus = true;
+        } else if (c.equals("o")) {
+            openedhand = new ArrayList<>();
+            closedstatus = false;
+        }
+
         for (String s : los) {
             String[] part = s.split("(?<=\\D)(?=\\d)");
             String a = part[0];
@@ -110,6 +133,7 @@ public class Mahjong {
             }
         }
     }
+
 
     //Effect;; construct a so object according to input and put it in hand
 
@@ -178,7 +202,6 @@ public class Mahjong {
             addtileandincreasecount(p1);
         } else if (id == 2) {
             addtileandincreasecount(p2);
-
         } else if (id == 3) {
             addtileandincreasecount(p3);
         } else if (id == 4) {
@@ -234,11 +257,44 @@ public class Mahjong {
      * EFFECTS: increase the number count of the tiles and add tile to the hand
      */
     public void addtileandincreasecount(Tile t) {
+        if (closedstatus) {
+            t.increaseCount();
+            closedhand.add(t);
+        } else {
+            t.increaseCount();
+            openedhand.add(t);
+        }
 
-        t.increaseCount();
-        hand.add(t);
 
     }
+
+    public void setStartShuntsu(String s) {
+        ArrayList<Tile> tiles = new ArrayList<Tile>();
+        if (s.equals("c")) {
+            tiles = closedhand;
+        } else if (s.equals("o")) {
+            tiles = openedhand;
+        }
+
+        for (Tile t1 : tiles) {
+            if ((t1.getCatergory().equals("Man") || t1.getCatergory().equals("So")
+                    || t1.getCatergory().equals("Pin")) && t1.getIdNum() <= 7) {
+                for (Tile t2 : tiles) {
+                    if (t2.getCatergory().equals(t1.getCatergory()) && (t2.getIdNum() == t1.getIdNum() + 1)) {
+                        for (Tile t3 : tiles) {
+                            if (t3.getCatergory().equals(t2.getCatergory()) && (t3.getIdNum() == t2.getIdNum() + 1)) {
+                                t1.setStartShuntsu(true);
+                                t1.setInShuntsu(true);
+                                t2.setInShuntsu(true);
+                                t3.setInShuntsu(true);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     /*
      * * MODIFIES this
@@ -266,13 +322,104 @@ public class Mahjong {
 ////        }
 //    }
 
+
+//    @Override
+//    public JSONObject toJson() {
+//        JSONObject json = new JSONObject();
+//        json.put("round", round);
+//        json.put("position", position);
+//        json.put("userinputclosed", TilesToJson(1));
+//        json.put("userinputopened", TilesToJson(2));
+//
+//        return json;
+//    }
+//
+////    private JSONArray TilesToJson(int i) {
+////        JSONArray jsonArray = new JSONArray();
+////        ArrayList<String> tiles = new ArrayList<String>();
+////        if (i == 1) {
+////            tiles = userinputclosed;
+////        }
+////        if (i == 2) {
+////            tiles = userinputopened;
+////        }
+////        for (String t : tiles) {
+////            jsonArray.put(t.toJson());
+////        }
+////
+////        return jsonArray;
+////    }
+//
+//    public JSONArray toJson(ArrayList<String> hand) {
+//        JSONArray jsArray = new JSONArray();
+//        for (int i = 0; i < hand.size(); i++) {
+//            jsArray.put(hand.get(i));
+//        }
+//        return jsArray;
+//
+//    }
+
     public int getScore() {
         return score;
     }
 
-    public ArrayList<Tile> getHand() {
-        return hand;
+    public ArrayList<Tile> getClosedhand() {
+        return closedhand;
     }
 
+    public ArrayList<Tile> getOpenedhand() {
+        return openedhand;
+    }
 
+    public boolean isClosedstatus() {
+        return closedstatus;
+    }
+
+    public void setClosedstatus(boolean closedstatus) {
+        this.closedstatus = closedstatus;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setOpenedhand(ArrayList<Tile> openedhand) {
+        this.openedhand = openedhand;
+    }
+
+    public void setClosedhand(ArrayList<Tile> closedhand) {
+        this.closedhand = closedhand;
+    }
+
+    public ArrayList<String> getUserinputopened() {
+        return userinputopened;
+    }
+
+    public void setUserinputopened(ArrayList<String> userinputopened) {
+        this.userinputopened = userinputopened;
+    }
+
+    public ArrayList<String> getUserinputclosed() {
+        return userinputclosed;
+    }
+
+    public void setUserinputclosed(ArrayList<String> userinputclosed) {
+        this.userinputclosed = userinputclosed;
+    }
+
+    public int getRound() {
+        return round;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 }

@@ -3,6 +3,8 @@ package persistence;
 //reference: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 import org.json.JSONArray;
+import org.json.JSONObject;
+import ui.Mahjongapp;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,20 +27,71 @@ public class HandReader {
 
     // EFFECTS: reads workroom from file and returns it;
 
-    public ArrayList<String> read() throws IOException {
+    public Mahjongapp read() throws IOException {
         String jsonData = readFile(source);
 
 
-        ArrayList<String> list = new ArrayList<String>();
-        JSONArray jsonArray = new JSONArray(jsonData);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseApp(jsonObject);
 
+
+//
+//        ArrayList<String> list = new ArrayList<String>();
+//        JSONArray jsonArray = new JSONArray(jsonData);
+//        int len = jsonArray.length();
+//        for (int i = 0; i < len; i++) {
+//            list.add(jsonArray.get(i).toString());
+//        }
+//
+//        return list;
+    }
+
+
+    // EFFECTS: parses workroom from JSON object and returns it
+    private Mahjongapp parseApp(JSONObject jsonObject) {
+        int round = jsonObject.getInt("round");
+        Mahjongapp app = new Mahjongapp();
+        app.setRound(round);
+        addposition(app, jsonObject);
+        return app;
+    }
+
+
+    private void addposition(Mahjongapp app, JSONObject jsonObject) {
+        int position = jsonObject.getInt("position");
+        app.setPosition(position);
+        addclosedhand(app, jsonObject);
+
+
+    }
+
+    private void addclosedhand(Mahjongapp app, JSONObject jsonObject) {
+
+
+        ArrayList<String> list = new ArrayList<String>();
+        JSONArray jsonArray = jsonObject.getJSONArray("closedhand");
         int len = jsonArray.length();
         for (int i = 0; i < len; i++) {
             list.add(jsonArray.get(i).toString());
         }
-
-        return list;
+        app.setClosedhand(list);
+        addopenedhand(app, jsonObject);
     }
+
+
+    private void addopenedhand(Mahjongapp app, JSONObject jsonObject) {
+
+
+        ArrayList<String> list = new ArrayList<String>();
+        JSONArray jsonArray = jsonObject.getJSONArray("opnedhand");
+        int len = jsonArray.length();
+        for (int i = 0; i < len; i++) {
+            list.add(jsonArray.get(i).toString());
+        }
+        app.setOpenedhand(list);
+
+    }
+
 
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {

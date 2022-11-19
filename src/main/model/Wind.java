@@ -1,9 +1,13 @@
 package model;
 
+import java.util.Objects;
+
 //Represents a Wind tiles with it's id ,category, Shuntsu indicator and count
 public class Wind implements Tile {
     private int idNum;
     private String category;
+
+    private boolean isInShuntsu;
 
 
     private boolean startShuntsu;
@@ -45,7 +49,32 @@ public class Wind implements Tile {
         count -= 1;
     }
 
-    public boolean isStartShuntsu() {
-        return startShuntsu;
+    public void setStartShuntsu(boolean b) {
+        startShuntsu = b;
+    }
+
+    public void setInShuntsu(boolean b) {
+        isInShuntsu = b;
+    }
+
+    public boolean isInShuntsu() {
+        return isInShuntsu;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Wind wind = (Wind) o;
+        return idNum == wind.idNum && category.equals(wind.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idNum, category);
     }
 }

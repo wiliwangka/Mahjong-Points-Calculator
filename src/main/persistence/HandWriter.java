@@ -1,6 +1,9 @@
 package persistence;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
+import ui.Mahjongapp;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -26,8 +29,13 @@ public class HandWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of workroom to file
-    public void write(ArrayList<String> hand) {
-        JSONArray json = toJson(hand);
+    public void write(Mahjongapp m) {
+
+        JSONObject json = new JSONObject();
+        json.put("closedhand", toJson(m.getClosedhand()));
+        json.put("opnedhand", toJson(m.getOpenedhand()));
+        json.put("round", m.getRound());
+        json.put("position", m.getPosition());
         saveToFile(json.toString(TAB));
     }
 
@@ -39,6 +47,7 @@ public class HandWriter {
         return jsArray;
 
     }
+
 
     // MODIFIES: this
     // EFFECTS: closes writer
