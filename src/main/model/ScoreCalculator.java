@@ -165,7 +165,7 @@ public class ScoreCalculator {
             } else if (t.getCount() == 3 && !t.isInShuntsu()) {
                 tripletCount += 1;
 
-            } else if (t.getCount() == 3 && !t.isInShuntsu()) {
+            } else if (t.getCount() == 4 && !t.isInShuntsu()) {
                 koutsuCount += 1;
             }
         }
@@ -413,11 +413,11 @@ public class ScoreCalculator {
     private void chunroto() {
         int endtilescount = 0;
         for (Tile t : hand) {
-            if (t.getIdNum() == 1 || t.getIdNum() == 9 || t.getCatergory() == "Honor" || t.getCatergory() == "Wind") {
+            if (t.getIdNum() == 1 || t.getIdNum() == 9) {
                 endtilescount += 1;
             }
         }
-        if (endtilescount >= 14 && tripletCount >= 0) {
+        if (endtilescount >= 14 && tripletCount + koutsuCount >= 4) {
             yakumanCount += 1;
             winingMessages.add("Chinroutou 清老頭");
         }
@@ -429,10 +429,10 @@ public class ScoreCalculator {
         int ankoCount = 0;
         for (Tile t : closedhand) {
             if (t.getCount() == 3 && !t.isInShuntsu()) {
-                tripletCount += 1;
+                ankoCount += 1;
             }
         }
-        if (ankoCount / 4 == 4) {
+        if (ankoCount / 3 == 4) {
             yakumanCount += 1;
             winingMessages.add("Suuankou 四暗刻");
         }
@@ -482,7 +482,7 @@ public class ScoreCalculator {
 
     //Any hand with four calls of kan.
     private void fourkon() {
-        if (koutsuCount == 4) {
+        if (koutsuCount == 16) {
             yakumanCount += 1;
             winingMessages.add(" Suukantsu 四槓子");
         }
@@ -491,36 +491,59 @@ public class ScoreCalculator {
     //A hand consisting of the tiles 1112345678999 in the same suit plus any one extra tile in Man Tile.
     @SuppressWarnings("methodlength")
     private void chuurenPoutou() {
-        if (openedhand.size() == 0) {
-            if (hand.stream().filter(t -> t.getCatergory().equals("Man")).collect(Collectors.toList()).size() >= 14) {
-                if (hand.stream().filter(o -> o.getIdNum() == 1).collect(Collectors.toList()).size() >= 3) {
-                    if (hand.stream().filter(o -> o.getIdNum() == 2).collect(Collectors.toList()).size() >= 1) {
-                        if (hand.stream().filter(o -> o.getIdNum() == 3).collect(Collectors.toList()).size() >= 1) {
-                            if (hand.stream().filter(o -> o.getIdNum() == 4).collect(Collectors.toList()).size() >= 1) {
-                                if (hand.stream().filter(o -> o.getIdNum() == 5)
-                                        .collect(Collectors.toList()).size() >= 1) {
-                                    if (hand.stream().filter(o -> o.getIdNum() == 6)
-                                            .collect(Collectors.toList()).size() >= 1) {
-                                        if (hand.stream().filter(o -> o.getIdNum() == 7)
-                                                .collect(Collectors.toList()).size() >= 1) {
-                                            if (hand.stream().filter(o -> o.getIdNum() == 8)
-                                                    .collect(Collectors.toList()).size() >= 1) {
-                                                if (hand.stream().filter(o -> o.getIdNum() == 9)
-                                                        .collect(Collectors.toList()).size() >= 3) {
-                                                    yakumanCount += 1;
-                                                    winingMessages.add(" Chuuren poutou 九連宝燈");
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        if (openedhand.size() == 0
+                && hand.stream().filter(t -> t.getCatergory().equals("Man")).collect(Collectors.toList()).size() >= 14
+                && hand.stream().filter(o -> o.getIdNum() == 1).collect(Collectors.toList()).size() >= 3
+                && hand.stream().filter(o -> o.getIdNum() == 2).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 3).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 4).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 5).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 6).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 7).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 8).collect(Collectors.toList()).size() >= 1
+                && hand.stream().filter(o -> o.getIdNum() == 9).collect(Collectors.toList()).size() >= 3) {
+            yakumanCount += 1;
+            winingMessages.add(" Chuuren poutou 九連宝燈");
         }
     }
+//        }
+//        }
+//        )
+//            if (openedhand.size() == 0) {
+//                if (hand.stream().filter(t -> t.getCatergory()
+//                .equals("Man")).collect(Collectors.toList()).size() >= 14) {
+//                    if (hand.stream().filter(o -> o.getIdNum() == 1)
+//                    .collect(Collectors.toList()).size() >= 3) {
+//                        if (hand.stream().filter(o -> o.getIdNum() == 2)
+//                        .collect(Collectors.toList()).size() >= 1) {
+//                            if (hand.stream().filter(o -> o.getIdNum() == 3)
+//                            .collect(Collectors.toList()).size() >= 1) {
+//                                if (hand.stream().filter(o -> o.getIdNum() == 4)
+//                                .collect(Collectors.toList()).size() >= 1) {
+//                                    if (hand.stream().filter(o -> o.getIdNum() == 5)
+//                                            .collect(Collectors.toList()).size() >= 1) {
+//                                        if (hand.stream().filter(o -> o.getIdNum() == 6)
+//                                                .collect(Collectors.toList()).size() >= 1) {
+//                                            if (hand.stream().filter(o -> o.getIdNum() == 7)
+//                                                    .collect(Collectors.toList()).size() >= 1) {
+//                                                if (hand.stream().filter(o -> o.getIdNum() == 8)
+//                                                        .collect(Collectors.toList()).size() >= 1) {
+//                                                    if (hand.stream().filter(o -> o.getIdNum() == 9)
+//                                                            .collect(Collectors.toList()).size() >= 3) {
+//                                                        yakumanCount += 1;
+//                                                        winingMessages.add(" Chuuren poutou 九連宝燈");
+//                                                    }
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//    }
 
 
     // double yakuman

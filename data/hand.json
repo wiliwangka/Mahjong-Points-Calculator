@@ -1,10 +1,10 @@
 {
     "opnedhand": [],
-    "round": 1,
+    "round": 0,
     "closedhand": [
-        "s2",
-        "s2",
-        "s2"
+        "s1",
+        "s1",
+        "s1"
     ],
-    "position": 1
+    "position": 0
 }
