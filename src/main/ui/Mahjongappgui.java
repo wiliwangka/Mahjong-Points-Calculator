@@ -52,16 +52,13 @@ public class Mahjongappgui extends JPanel {
     private JLabel tile13Label;
     private JLabel tile14Label;
     private JPanel closedtilespane;
-    private JPanel sopane;
     private JButton man1Button;
-    private JPanel manpane;
     private JPanel settingpane;
     private JLabel tile15Label;
     private JLabel tile16Label;
     private JLabel tile17Label;
     private JLabel tile18Label;
     private JPanel opentilepane;
-    private JPanel pinpane;
     private JButton wind1Button;
     private JButton honor2Button;
     private JButton honor3Button;
@@ -104,6 +101,10 @@ public class Mahjongappgui extends JPanel {
     private JButton restartButton;
     private JComboBox samplehandselection;
     private JButton loadSampleButton;
+    private JPanel sopane;
+    private JPanel manpane;
+    private JPanel pinpane;
+    private JPanel tilespanel;
 
 
     private int s1Count;
@@ -673,6 +674,8 @@ public class Mahjongappgui extends JPanel {
             closedhandbutton.setSelected(true);
 //            samplehandpath = "";
             samplehandselection.setSelectedIndex(0);
+
+
 
         }
 
