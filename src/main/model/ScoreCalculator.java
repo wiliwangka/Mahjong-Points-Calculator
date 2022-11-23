@@ -135,6 +135,7 @@ public class ScoreCalculator {
 
         if (yakumanCount == 0 && doubleyakumanCount == 0) {
             noYakuMan();
+
         }
 
 

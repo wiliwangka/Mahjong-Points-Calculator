@@ -23,5 +23,25 @@ ___
 - As a user, I want to restart my tile enters if I made mistakes  
 - As a user, I want to know how many yaku is my hand.
 - As a user,I want to indicate my current position and wind of the round.
-- As a user, I want to the calculater to recognize tanyao(no end tiles) ,Chiitoitsu (7 pairs) as yaku
+- As a user, I want to the calculater to recognize any yakuman and double yakuman hand composition
 - As a user, I want to be able to restore my hand and calculate it's point later
+- As a user, I want to add multiple tiles into my hand using graphical buttons 
+- As a user, I want to save my finished/ half finished hand 
+- As a user, I want to load my hand entries from the file I saved to from last round 
+- As a user, I want to load sample hands into the calculator
+
+
+
+## Instructions for Grader
+---
+- You can generate the first required event related to adding Xs to a Y by clicking on any one of the buttons
+with a tile icons on it.  
+- You can generate the second required event related to adding Xs to a Y by repeating the first step.
+- You can locate my visual component by the icon of the add tiles button and the visualization of the added tiles 
+ in the Opened tiles collection and Closed tiles collection.
+- You can save the state of my application by first select tiles into your hand and click the Save button.
+- You can reload the state of my application by click the load button or select on of the option from the sample hand 
+and click load sample hand.
+- after adding enough tile of tiplets (XXX), Kuntsu (XXXX), Shuntsu (X X+1 X+2) and a pair(XX) you may have 
+at least 14 tiles in your hand and for every kuntsu your tiles limit increase by one and up to 18 tiles.
+- You can press the calculate button of get the point for your hand.

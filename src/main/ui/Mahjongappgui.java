@@ -506,7 +506,9 @@ public class Mahjongappgui extends JPanel {
                 } else {
                     Mahjong game = new Mahjong(closedhand, openedhand, round, position);
                     ScoreCalculator score = new ScoreCalculator((game));
-                    JOptionPane.showMessageDialog(null, "Your yaku is:" + score.getYaku() + "\n your point contains" + "\n" + Arrays.toString(score.getWiningMessages().toArray()));
+                    int yaku = score.getYaku() + 14 * score.getYakumanCount() + 28 * score.getDoubleyakumanCount();
+                    JOptionPane.showMessageDialog(null, "Your yaku is:" + yaku
+                            + "\n your point contains:" + "\n" + Arrays.toString(score.getWiningMessages().toArray()));
                 }
 
             }
