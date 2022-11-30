@@ -10,32 +10,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class HandWriterTest {
-    @Test
-    void testReaderNonExistentFile() {
-        HandReader reader = new HandReader("./data/noSuchFile.json");
-        try {
-            Mahjongapp app = reader.read();
-            fail("IOException expected");
-        } catch (IOException e) {
-            // pass if check exception
-        }
-    }
-
-
-    @Test
-    void testWriterInvalidFile() {
-        try {
-            Mahjongapp app = new Mahjongapp();
-            ArrayList<String> hand = new ArrayList<String>();
-            hand.add("s1");
-            app.setClosedhand(hand);
-            HandWriter writer = new HandWriter("./data/my\0illegal:fileName.json");
-            writer.open();
-            fail("IOException was expected");
-        } catch (IOException e) {
-            // valid if catch exception
-        }
-    }
+//    @Test
+//    void testReaderNonExistentFile() {
+//        HandReader reader = new HandReader("./data/noSuchFile.json");
+//        try {
+//            Mahjongapp app = reader.read();
+//            fail("IOException expected");
+//        } catch (IOException e) {
+//            // pass if check exception
+//        }
+//    }
+//
+//
+//    @Test
+//    void testWriterInvalidFile() {
+//        try {
+//            Mahjongapp app = new Mahjongapp();
+//            ArrayList<String> hand = new ArrayList<String>();
+//            hand.add("s1");
+//            app.setClosedhand(hand);
+//            HandWriter writer = new HandWriter("./data/my\0illegal:fileName.json");
+//            writer.open();
+//            fail("IOException was expected");
+//        } catch (IOException e) {
+//            // valid if catch exception
+//        }
+//    }
 
 //    @Test
 //    void testWriterEmptyHand() {

@@ -11,59 +11,59 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MahjongTest {
-    private ArrayList<String> openedinput;
-    private ArrayList<String> closedinput;
-    private Mahjong game;
-
-    private ScoreCalculator score;
-
-
-    @BeforeEach
-    void runBefore() {
-        closedinput = new ArrayList<>();
-        openedinput = new ArrayList<>();
-
-    }
-
-    @Test
-    void testMahjongNoScore() {
-        openedinput.add("s2");
-        openedinput.add("s2");
-        openedinput.add("s2");
-
-        closedinput.add("m3");
-        closedinput.add("m4");
-        closedinput.add("m5");
-        closedinput.add("p6");
-        closedinput.add("p7");
-        closedinput.add("p8");
-
-        openedinput.add("h1");
-        openedinput.add("h2");
-        openedinput.add("h3");
-        openedinput.add("w1");
-        openedinput.add("w2");
-        game = new Mahjong(closedinput, openedinput, 1, 1);
-     score = new ScoreCalculator(game);
-        assertEquals(0, score.getScore());
-    }
-
-    @Test
-    void testMahjongWithScore() {
+//    private ArrayList<String> openedinput;
+//    private ArrayList<String> closedinput;
+//    private Mahjong game;
 //
+//    private ScoreCalculator score;
+//
+//
+//    @BeforeEach
+//    void runBefore() {
+//        closedinput = new ArrayList<>();
+//        openedinput = new ArrayList<>();
+//
+//    }
+//
+//    @Test
+//    void testMahjongNoScore() {
 //        openedinput.add("s2");
 //        openedinput.add("s2");
 //        openedinput.add("s2");
-
-        closedinput.add("w1");
-        closedinput.add("w1");
-        closedinput.add("w1");
-
-
-        game = new Mahjong(closedinput, openedinput, 1, 1);
-       score = new ScoreCalculator(game);
-        assertEquals(2, score.getScore());
-    }
+//
+//        closedinput.add("m3");
+//        closedinput.add("m4");
+//        closedinput.add("m5");
+//        closedinput.add("p6");
+//        closedinput.add("p7");
+//        closedinput.add("p8");
+//
+//        openedinput.add("h1");
+//        openedinput.add("h2");
+//        openedinput.add("h3");
+//        openedinput.add("w1");
+//        openedinput.add("w2");
+//        game = new Mahjong(closedinput, openedinput, 1, 1);
+//     score = new ScoreCalculator(game);
+//        assertEquals(0, score.getScore());
+//    }
+//
+//    @Test
+//    void testMahjongWithScore() {
+////
+////        openedinput.add("s2");
+////        openedinput.add("s2");
+////        openedinput.add("s2");
+//
+//        closedinput.add("w1");
+//        closedinput.add("w1");
+//        closedinput.add("w1");
+//
+//
+//        game = new Mahjong(closedinput, openedinput, 1, 1);
+//       score = new ScoreCalculator(game);
+//        assertEquals(2, score.getScore());
+//    }
 
 //    @Test
 //    void testCountTiles() {

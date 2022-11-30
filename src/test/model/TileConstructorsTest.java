@@ -9,35 +9,35 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class TileConstructorsTest {
-    private Wind w;
-    private Honor h;
-    private Pin p;
-    private So s;
-    private Man m;
-
-    @BeforeEach
-    void runBefore() {
-        w = new Wind(1);
-        h = new Honor(2);
-        p = new Pin(3);
-        s = new So(4);
-        m = new Man(5);
-    }
-
-    @Test
-    void testWindConstructor() {
-
-        assertEquals(1, w.getIdNum());
-        assertEquals("Wind", w.getCatergory());
-        assertEquals(0, w.getCount());
-        w.increaseCount();
-        assertEquals(1, w.getCount());
-        w.decreaseCount();
-        assertEquals(0, w.getCount());
-        assertFalse(w.startOfShuntsu());
-        assertFalse(w.isInShuntsu());
-    }
-
+//    private Wind w;
+//    private Honor h;
+//    private Pin p;
+//    private So s;
+//    private Man m;
+//
+//    @BeforeEach
+//    void runBefore() {
+//        w = new Wind(1);
+//        h = new Honor(2);
+//        p = new Pin(3);
+//        s = new So(4);
+//        m = new Man(5);
+//    }
+//
+//    @Test
+//    void testWindConstructor() {
+//
+//        assertEquals(1, w.getIdNum());
+//        assertEquals("Wind", w.getCatergory());
+//        assertEquals(0, w.getCount());
+//        w.increaseCount();
+//        assertEquals(1, w.getCount());
+//        w.decreaseCount();
+//        assertEquals(0, w.getCount());
+//        assertFalse(w.startOfShuntsu());
+//        assertFalse(w.isInShuntsu());
+//    }
+//
 
 //    @Test
 //    void testHonorConstructor() {

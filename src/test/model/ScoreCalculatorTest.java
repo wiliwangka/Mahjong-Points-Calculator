@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ScoreCalculatorTest {
-    private ArrayList<String> openedinput;
-    private ArrayList<String> closedinput;
-    private Mahjong game;
-
-
-    @BeforeEach
-    void runBefore() {
-        closedinput = new ArrayList<>();
-        openedinput = new ArrayList<>();
+//    private ArrayList<String> openedinput;
+//    private ArrayList<String> closedinput;
+//    private Mahjong game;
+//
+//
+//    @BeforeEach
+//    void runBefore() {
+//        closedinput = new ArrayList<>();
+//        openedinput = new ArrayList<>();
 
 
 //        closedhand = new ArrayList<Tile>();
@@ -38,63 +38,63 @@ public class ScoreCalculatorTest {
 //        openedhand.add(new Pin(8));
 
 
-    }
-
-    @Test
-    void testConstructor() {
-        openedinput.add("s2");
-        openedinput.add("s2");
-        openedinput.add("s2");
-        openedinput.add("h1");
-        openedinput.add("h2");
-        openedinput.add("h3");
-        openedinput.add("w1");
-        openedinput.add("w2");
-        closedinput.add("m3");
-        closedinput.add("m4");
-        closedinput.add("m5");
-        closedinput.add("p6");
-        closedinput.add("p7");
-        closedinput.add("p8");
-        game = new Mahjong(closedinput, openedinput, 1, 1);
-        ScoreCalculator riichi = new ScoreCalculator(game);
-        assertEquals(riichi.getClosedhand() , game.getClosedhand());
-        assertEquals(1, riichi.getRound());
-        assertEquals(1, riichi.getPosition());
-        assertEquals(0, riichi.getYaku());
-        assertEquals(0, riichi.getScore());
-        assertEquals(0, riichi.getFu());
-        assertEquals(0, riichi.getKoutsuCount());
-        assertEquals(0, riichi.getShuntsuCount());
-        assertEquals(0, riichi.getPairCount());
-        assertEquals(0, riichi.getEyeCount());
-        assertEquals(0, riichi.getEndtileCount());
-
-    }
-
-    @Test
-    void testComputeScoreWithNoYaku() {
-        openedinput.add("s2");
-        openedinput.add("s2");
-        openedinput.add("s2");
-        openedinput.add("h1");
-        openedinput.add("h2");
-        openedinput.add("h3");
-        openedinput.add("w1");
-        openedinput.add("w2");
-
-        closedinput.add("m3");
-        closedinput.add("m4");
-        closedinput.add("m5");
-        closedinput.add("p6");
-        closedinput.add("p7");
-        closedinput.add("p8");
-        game = new Mahjong(closedinput, openedinput, 1, 1);
-        ScoreCalculator nokayugame = new ScoreCalculator(game);
-
-        assertEquals(0, nokayugame.getYaku());
-
-    }
+//    }
+//
+//    @Test
+//    void testConstructor() {
+//        openedinput.add("s2");
+//        openedinput.add("s2");
+//        openedinput.add("s2");
+//        openedinput.add("h1");
+//        openedinput.add("h2");
+//        openedinput.add("h3");
+//        openedinput.add("w1");
+//        openedinput.add("w2");
+//        closedinput.add("m3");
+//        closedinput.add("m4");
+//        closedinput.add("m5");
+//        closedinput.add("p6");
+//        closedinput.add("p7");
+//        closedinput.add("p8");
+//        game = new Mahjong(closedinput, openedinput, 1, 1);
+//        ScoreCalculator riichi = new ScoreCalculator(game);
+//        assertEquals(riichi.getClosedhand() , game.getClosedhand());
+//        assertEquals(1, riichi.getRound());
+//        assertEquals(1, riichi.getPosition());
+//        assertEquals(0, riichi.getYaku());
+//        assertEquals(0, riichi.getScore());
+//        assertEquals(0, riichi.getFu());
+//        assertEquals(0, riichi.getKoutsuCount());
+//        assertEquals(0, riichi.getShuntsuCount());
+//        assertEquals(0, riichi.getPairCount());
+//        assertEquals(0, riichi.getEyeCount());
+//        assertEquals(0, riichi.getEndtileCount());
+//
+//    }
+//
+//    @Test
+//    void testComputeScoreWithNoYaku() {
+//        openedinput.add("s2");
+//        openedinput.add("s2");
+//        openedinput.add("s2");
+//        openedinput.add("h1");
+//        openedinput.add("h2");
+//        openedinput.add("h3");
+//        openedinput.add("w1");
+//        openedinput.add("w2");
+//
+//        closedinput.add("m3");
+//        closedinput.add("m4");
+//        closedinput.add("m5");
+//        closedinput.add("p6");
+//        closedinput.add("p7");
+//        closedinput.add("p8");
+//        game = new Mahjong(closedinput, openedinput, 1, 1);
+//        ScoreCalculator nokayugame = new ScoreCalculator(game);
+//
+//        assertEquals(0, nokayugame.getYaku());
+//
+//    }
 //
 //    @Test
 //    void testComputeScoreWithYaku() {
