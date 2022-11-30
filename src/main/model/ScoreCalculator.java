@@ -240,31 +240,19 @@ public class ScoreCalculator {
     }
 
     private void honors() {
-        boolean white = false;
-        boolean green = false;
-        boolean red = false;
         for (Tile t : hand) {
             if (t.getCatergory().equals("Honor")) {
-                if (t.getIdNum() == 1 && t.getCount() >= 3) {
-                    white = true;
-                } else if (t.getIdNum() == 2 && t.getCount() >= 3) {
-                    green = true;
-                } else if (t.getIdNum() == 3 && t.getCount() >= 3) {
-                    red = true;
+                if (t.getIdNum() == 1 && t.getCount() >= 3 && !winingMessages.contains("White 白")) {
+                    yaku += 1;
+                    winingMessages.add("White 白");
+                } else if (t.getIdNum() == 2 && t.getCount() >= 3 && !winingMessages.contains("White 發")) {
+                    yaku += 1;
+                    winingMessages.add("White 發");
+                } else if (t.getIdNum() == 3 && t.getCount() >= 3 && !winingMessages.contains("White 中")) {
+                    yaku += 1;
+                    winingMessages.add("White 中");
                 }
             }
-        }
-        if (white) {
-            yaku += 1;
-            winingMessages.add("White 白");
-        }
-        if (green) {
-            yaku += 1;
-            winingMessages.add("White 發");
-        }
-        if (red) {
-            yaku += 1;
-            winingMessages.add("White 中");
         }
     }
 
@@ -487,16 +475,13 @@ public class ScoreCalculator {
         ArrayList<Tile> sohand = new ArrayList<Tile>();
         ArrayList<Tile> pinhand = new ArrayList<Tile>();
         for (Tile t : hand) {
-            switch (t.getCatergory()) {
-                case "Man":
-                    manhand.add(t);
-                    break;
-                case "So":
-                    sohand.add(t);
-                    break;
-                case "Pin":
-                    pinhand.add(t);
-                    break;
+
+            if (t.getCatergory().equals("Man")) {
+                manhand.add(t);
+            } else if (t.getCatergory().equals("So")) {
+                sohand.add(t);
+            } else if (t.getCatergory().equals("Pin")) {
+                pinhand.add(t);
             }
         }
         if (itsuhelper(manhand) || itsuhelper(sohand) || itsuhelper(pinhand)) {
@@ -510,6 +495,7 @@ public class ScoreCalculator {
         }
     }
 
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private boolean itsuhelper(ArrayList<Tile> hand) {
         boolean onecheck = false;
         boolean twocheck = false;

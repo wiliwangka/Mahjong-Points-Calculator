@@ -728,7 +728,11 @@ public class Mahjongappgui extends JPanel {
 
     // EFFECT set icon for the mahjong buttons
     protected void setButtonIcon() {
+        setbhelper1();
+        setbhelper2();
+    }
 
+    private void setbhelper1() {
         so1Button.setIcon((new ImageIcon("data/mahjongtiles/s1.jpg")));
         so2Button.setIcon((new ImageIcon("data/mahjongtiles/s2.jpg")));
         so3Button.setIcon((new ImageIcon("data/mahjongtiles/s3.jpg")));
@@ -748,7 +752,9 @@ public class Mahjongappgui extends JPanel {
         man7Button.setIcon((new ImageIcon("data/mahjongtiles/m7.jpg")));
         man8Button.setIcon((new ImageIcon("data/mahjongtiles/m8.jpg")));
         man9Button.setIcon((new ImageIcon("data/mahjongtiles/m9.jpg")));
+    }
 
+    private void setbhelper2() {
         pin1Button.setIcon((new ImageIcon("data/mahjongtiles/p1.jpg")));
         pin2Button.setIcon((new ImageIcon("data/mahjongtiles/p2.jpg")));
         pin3Button.setIcon((new ImageIcon("data/mahjongtiles/p3.jpg")));
@@ -768,8 +774,6 @@ public class Mahjongappgui extends JPanel {
         honor1Button.setIcon((new ImageIcon("data/mahjongtiles/h1.jpg")));
         honor2Button.setIcon((new ImageIcon("data/mahjongtiles/h2.jpg")));
         honor3Button.setIcon((new ImageIcon("data/mahjongtiles/h3.jpg")));
-
-
     }
 
     //Effect set label image for open and closed hand when the tile buttons is being click
@@ -788,6 +792,7 @@ public class Mahjongappgui extends JPanel {
 
     // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
 // EFFECT set label image from different source based on input path
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     protected void setLabelIcon(String file) {
         if (enterchannel) {
             switch (tilePositionCount + 1) {
@@ -901,8 +906,16 @@ public class Mahjongappgui extends JPanel {
     }
 
     //EFFECT clear labels image from JLABELS
-    @SuppressWarnings("checkstyle:MethodLength")
+
     public void clearlabels() {
+
+
+        clearclabel();
+        clearolabel();
+
+    }
+
+    private void clearclabel() {
         tile1Label.setIcon(null);
         tile2Label.setIcon(null);
         tile3Label.setIcon(null);
@@ -921,7 +934,9 @@ public class Mahjongappgui extends JPanel {
         tile16Label.setIcon(null);
         tile17Label.setIcon(null);
         tile18Label.setIcon(null);
+    }
 
+    private void clearolabel() {
         otile1Label.setIcon(null);
         otile2Label.setIcon(null);
         otile3Label.setIcon(null);
@@ -938,11 +953,17 @@ public class Mahjongappgui extends JPanel {
         otile14Label.setIcon(null);
         otile15Label.setIcon(null);
         otile16Label.setIcon(null);
-
     }
 
     //EFFECT reset the count for tile Counter
     public void tileCountinitialization() {
+
+
+        helper1();
+        helper2();
+    }
+
+    private void helper1() {
         s1Count = 0;
         s2Count = 0;
         s3Count = 0;
@@ -962,7 +983,9 @@ public class Mahjongappgui extends JPanel {
         m7Count = 0;
         m8Count = 0;
         m9Count = 0;
+    }
 
+    private void helper2() {
         p1Count = 0;
         p2Count = 0;
         p3Count = 0;
@@ -981,7 +1004,6 @@ public class Mahjongappgui extends JPanel {
         h1Count = 0;
         h2Count = 0;
         h3Count = 0;
-
     }
 
     // EFFECT record and save the changes to the mahjong app
@@ -1032,6 +1054,7 @@ public class Mahjongappgui extends JPanel {
 
     //Require String that represent a tiles in mahjong game
     // EFFECT click the button represent by the tile enter
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     protected void doclick(String s) {
         switch (s) {
             case "s1":

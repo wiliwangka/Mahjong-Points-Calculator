@@ -286,6 +286,7 @@ public class Mahjong {
         shuntsuhelper();
     }
 
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void shuntsuhelper() {
         if (shungtsutiles.size() > 2) {
             for (Tile t1 : shungtsutiles) {
