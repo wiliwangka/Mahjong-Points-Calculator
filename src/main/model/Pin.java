@@ -70,6 +70,7 @@ public class Pin implements Tile {
     public void increaseInShuntsuCount() {
         inShuntsuCount += 1;
     }
+
     public int getstartofShuntsuCount() {
         return startShuntsuCount;
     }
@@ -77,6 +78,7 @@ public class Pin implements Tile {
     public void increaseStartofShuntsuCount() {
         startShuntsuCount += 1;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
