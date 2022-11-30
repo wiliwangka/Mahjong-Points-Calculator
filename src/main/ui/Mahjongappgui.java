@@ -173,6 +173,7 @@ public class Mahjongappgui extends JPanel {
 
     private String samplehandpath;
 
+    //Modify this
     // Effect construct and record the action of buttons and radio boxes
     @SuppressWarnings("methodlength")
     public Mahjongappgui() {
@@ -694,7 +695,8 @@ public class Mahjongappgui extends JPanel {
     }
 
     // Require int of one of 0 or 1
-//initialize the buttons and Jlabels by given numbers 0 being start of program and 1 for restart button
+    //Modify this
+//EFFECT initialize the buttons and Jlabels by given numbers 0 being start of program and 1 for restart button
     private void initialization(int i) {
 
         handWriter = new HandWriter(JSON_STORE);
@@ -726,6 +728,7 @@ public class Mahjongappgui extends JPanel {
 
     }
 
+    //Modify this
     // EFFECT set icon for the mahjong buttons
     protected void setButtonIcon() {
         setbhelper1();
@@ -776,6 +779,8 @@ public class Mahjongappgui extends JPanel {
         honor3Button.setIcon((new ImageIcon("data/mahjongtiles/h3.jpg")));
     }
 
+    // require a string that represent a path to a image file in data folder
+    //Modify this
     //Effect set label image for open and closed hand when the tile buttons is being click
     protected void setlabelrunner(String tile) {
 
@@ -789,7 +794,8 @@ public class Mahjongappgui extends JPanel {
 
         }
     }
-
+    //require a string that represent a path to a image file in data folder
+    //Modify this
     // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
 // EFFECT set label image from different source based on input path
 
@@ -800,6 +806,10 @@ public class Mahjongappgui extends JPanel {
             setobuttons(file);
         }
     }
+    //require a string that represent a path to a image file in data folder
+    //Modify this
+    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
+// EFFECT set label image from different source based on input path
 
     @SuppressWarnings("methodlength")
     private void setobuttons(String file) {
@@ -855,6 +865,10 @@ public class Mahjongappgui extends JPanel {
         }
     }
 
+    //require a string that represent a path to a image file in data folder
+    //Modify this
+    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
+// EFFECT set label image from different source based on input path
     @SuppressWarnings("methodlength")
     private void setcbuttons(String file) {
         switch (tilePositionCount + 1) {
@@ -914,7 +928,7 @@ public class Mahjongappgui extends JPanel {
                 break;
         }
     }
-
+// motify this
     //EFFECT clear labels image from JLABELS
 
     public void clearlabels() {
@@ -922,6 +936,8 @@ public class Mahjongappgui extends JPanel {
         clearolabel();
     }
 
+    // motify this
+    //EFFECT clear labels image from JLABELS for closed tiles
     private void clearclabel() {
         tile1Label.setIcon(null);
         tile2Label.setIcon(null);
@@ -943,6 +959,8 @@ public class Mahjongappgui extends JPanel {
         tile18Label.setIcon(null);
     }
 
+    // motify this
+    //EFFECT clear labels image from JLABELS for opened tiles
     private void clearolabel() {
         otile1Label.setIcon(null);
         otile2Label.setIcon(null);
@@ -962,6 +980,7 @@ public class Mahjongappgui extends JPanel {
         otile16Label.setIcon(null);
     }
 
+    // motify this
     //EFFECT reset the count for tile Counter
     public void tileCountinitialization() {
 
@@ -970,6 +989,8 @@ public class Mahjongappgui extends JPanel {
         helper2();
     }
 
+    // motify this
+    //EFFECT reset the count for tile Counter
     private void helper1() {
         s1Count = 0;
         s2Count = 0;
@@ -992,6 +1013,8 @@ public class Mahjongappgui extends JPanel {
         m9Count = 0;
     }
 
+    // motify this
+    //EFFECT reset the count for tile Counter
     private void helper2() {
         p1Count = 0;
         p2Count = 0;
@@ -1013,6 +1036,7 @@ public class Mahjongappgui extends JPanel {
         h3Count = 0;
     }
 
+    // motify this
     // EFFECT record and save the changes to the mahjong app
     protected void saveHand() {
 
@@ -1032,6 +1056,7 @@ public class Mahjongappgui extends JPanel {
         }
     }
 
+    // motify this
     // EFFECT load hand from the save from previous entery
     protected void loadHand(String path) {
         try {
@@ -1060,6 +1085,7 @@ public class Mahjongappgui extends JPanel {
     }
 
     //Require String that represent a tiles in mahjong game
+    // motify this
     // EFFECT click the button represent by the tile enter
     @SuppressWarnings("methodlength")
     protected void doclick(String s) {

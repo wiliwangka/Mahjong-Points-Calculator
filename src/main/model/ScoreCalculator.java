@@ -111,7 +111,7 @@ public class ScoreCalculator {
     /*
 
      * * MODIFIES this
-     * EFFECTS: at current stage:add up and indicate if the hand contain tanyao yaku
+     * EFFECTS: at current stage: every yaku is included except shanshoku and shashokotsu
      ,if no yaku is presented than yaku = 0
 
      */
@@ -136,27 +136,11 @@ public class ScoreCalculator {
 
         }
 
-
-//        for (Tile t : hand) {
-//            if (t.getCount() == 2) {
-//                pairCount += 1;
-//                eyeCount += 1;
-//            }
-//
-//            if (t.getIdNum() == 1 || t.getIdNum() == 9 || t.getCatergory() == "Honor" || t.getCatergory() == "Wind") {
-//                endtileCount += 1;
-//            }
-//        }
-//        if (endtileCount == 0) {
-//            yaku += 1;
-//        }
-//        if (pairCount / 2 == 7) {
-//            yaku += 1;
-//        }
-        // keep score = yaku for now as the scoring system is incomplete
         score = yaku;
     }
 
+    //Motify this
+//EFFECT count the pair triples and koutsu
     private void pairntripletcounter() {
         for (Tile t : hand) {
             if (t.getCount() == 2 && !t.isInShuntsu()) {
@@ -170,6 +154,7 @@ public class ScoreCalculator {
         }
     }
 
+    // EFFECT computer score for hand that that doesn't have yakuman
     private void noYakuMan() {
 
         // one yaku
@@ -203,6 +188,7 @@ public class ScoreCalculator {
 
     }
 
+    // EFFECT computer score for honor and wind tiplets
     private void specialyaku() {
         if (!(winingMessages.contains("Daisuushii 大四喜") || winingMessages.contains("Shousuushii 小四喜"))) {
             winds();
@@ -212,9 +198,9 @@ public class ScoreCalculator {
         }
     }
 
-//special yaku
 
-
+    //Modify this
+// EFFECT compute yakue for winds
     private void winds() {
         int roundwindCount = 0;
         int positionwindCount = 0;
@@ -239,6 +225,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT compute score for honors yaku
     private void honors() {
         for (Tile t : hand) {
             if (t.getCatergory().equals("Honor")) {
@@ -256,7 +244,12 @@ public class ScoreCalculator {
         }
     }
 
-    // one yaku
+
+// one yaku
+
+
+    //Modify this
+// EFFECT determine if the hand contain tanyao yaku
     private void tanyao() {
         int endtileCount = 0;
         for (Tile t : hand) {
@@ -272,7 +265,8 @@ public class ScoreCalculator {
         }
     }
 
-
+    //Modify this
+// EFFECT determine if the hand contain pinfu yaku
     private void pinfu() {
         if (openedhand.size() == 0) {
             int shungtsucount = 0;
@@ -288,6 +282,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain iipeko yaku
     private void iipeko() {
         int iipekoCount = 0;
         if (openedhand.size() == 0) {
@@ -309,7 +305,8 @@ public class ScoreCalculator {
 
 
     // two yaku
-
+    //Modify this
+// EFFECT determine if the hand contain sanshoku yaku
     private void sanshoku() {
         //todo failure
         ArrayList<Tile> s = (ArrayList<Tile>) hand.stream()
@@ -335,6 +332,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain sanshokotsu yaku
     private void sanshokotsu() {
         //todo failure
         ArrayList<Tile> s = (ArrayList<Tile>) hand.stream().filter(t -> t.getCount() == 3).collect(Collectors.toList());
@@ -360,6 +359,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain sankoutsu yaku
     private void sankoutsu() {
         if (koutsuCount / 4 == 3) {
             yaku += 2;
@@ -367,6 +368,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain toitoi  yaku
     private void toitoi() {
         if (tripletCount / 3 + koutsuCount / 4 >= 4) {
             yaku += 2;
@@ -377,6 +380,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain sananko yaku
     private void sananko() {
 
         int ankoCount = 0;
@@ -391,6 +396,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain shosanen yaku
     private void shosanen() {
 
         int whitecount = 0;
@@ -418,6 +425,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain honroto yaku
     private void honroto() {
 
         boolean chanku = true;
@@ -435,6 +444,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain sevenpairs yaku
     private void sevenpairs() {
         if (openedhand.size() == 0) {
             if (pairCount / 2 == 7) {
@@ -444,6 +455,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain chanta  yaku
     private void chanta() {
         //todo failure prodiction
         boolean chanta = true;
@@ -468,7 +481,8 @@ public class ScoreCalculator {
         }
     }
 
-
+    //Modify this
+// EFFECT determine if the hand contain itsu yaku
     private void itsu() {
         //todo fail to detect itsu
         ArrayList<Tile> manhand = new ArrayList<Tile>();
@@ -495,6 +509,9 @@ public class ScoreCalculator {
         }
     }
 
+    // require the Tile in ArrayList with the same .getCategory() value
+    //Modify this
+// EFFECT check the present of 1-9 tiles for a single color
     @SuppressWarnings("methodlength")
     private boolean itsuhelper(ArrayList<Tile> hand) {
         boolean onecheck = false;
@@ -550,6 +567,10 @@ public class ScoreCalculator {
     }
 
     // three yaku
+
+
+    //Modify this
+// EFFECT determine if the hand contain nipeko yaku
     private void nipeko() {
         //todo no sever pair when have nipeko //chanta will trigger this ???
         yaku += 3;
@@ -557,6 +578,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain junchantaiyao  yaku
     private void junchantaiyao() {
         boolean junchanta = true;
         for (Tile t : hand) {
@@ -581,7 +604,8 @@ public class ScoreCalculator {
 
     }
 
-
+    //Modify this
+// EFFECT determine if the hand contain honitsu yaku
     private void honitsu() {
         boolean ispure = true;
         String color = "";
@@ -610,8 +634,9 @@ public class ScoreCalculator {
 
 
     // six yaku
-
-    //his hand is composed entirely of tiles from only one of the three suits. It is the only yaku set at 6 han
+    //Modify this
+// EFFECT determine if the hand contain purity  yaku
+    //this hand is composed entirely of tiles from only one of the three suits. It is the only yaku set at 6 han
     private void purity() {
         boolean ispurity = true;
         String color = hand.get(1).getCatergory();
@@ -634,6 +659,9 @@ public class ScoreCalculator {
 
     // yakuman
 
+
+    //Modify this
+// EFFECT determine if the hand contain taisanyen  yaku
     private void taisanyen() {
         boolean whitepresent = false;
         boolean greenpresent = false;
@@ -656,7 +684,8 @@ public class ScoreCalculator {
         }
     }
 
-
+    //Modify this
+// EFFECT determine if the hand contain tsuiso yaku
     private void tsuiso() {
         int alphabettilescount = 0;
         for (Tile t : hand) {
@@ -671,6 +700,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain greenpurity yaku
     //A hand composed entirely of green tiles: 2, 3, 4, 6 and 8 Sou and/or Hatsu.
     private void greenpurity() {
         int greentilescount = 0;
@@ -692,6 +723,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain chunroto  yaku
     //Every group of tiles are composed of terminal tiles.
     private void chunroto() {
         int endtilescount = 0;
@@ -709,6 +742,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain suuankou yaku
     private void suuankou() {
 
         int ankoCount = 0;
@@ -723,6 +758,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain kokushi musou yaku
     //This hand has one of each of the 13 different terminal and honor tiles plus one extra terminal or honour tile.
     private void gokusumuso() {
         if (hand.contains(s1) && hand.contains(s9) && hand.contains(m1) && hand.contains(m9)
@@ -735,6 +772,8 @@ public class ScoreCalculator {
 
     }
 
+    //Modify this
+// EFFECT determine if the hand contain shosushi yaku
     //This hand has three groups (triplets or quads) of the wind tiles plus a pair of the fourth kind.
     @SuppressWarnings("methodlength")
     private void shosushi() {
@@ -764,7 +803,8 @@ public class ScoreCalculator {
         }
     }
 
-
+    //Modify this
+// EFFECT determine if the hand contain suukantsu yaku
     //Any hand with four calls of kan.
     private void fourkon() {
         if (koutsuCount == 16) {
@@ -773,6 +813,8 @@ public class ScoreCalculator {
         }
     }
 
+    //Modify this
+// EFFECT determine if the hand contain chuurenpoutou yaku
     //A hand consisting of the tiles 1112345678999 in the same suit plus any one extra tile in Man Tile.
     @SuppressWarnings("methodlength")
     private void chuurenPoutou() {
@@ -791,49 +833,12 @@ public class ScoreCalculator {
             winingMessages.add(" Chuuren poutou 九連宝燈");
         }
     }
-//        }
-//        }
-//        )
-//            if (openedhand.size() == 0) {
-//                if (hand.stream().filter(t -> t.getCatergory()
-//                .equals("Man")).collect(Collectors.toList()).size() >= 14) {
-//                    if (hand.stream().filter(o -> o.getIdNum() == 1)
-//                    .collect(Collectors.toList()).size() >= 3) {
-//                        if (hand.stream().filter(o -> o.getIdNum() == 2)
-//                        .collect(Collectors.toList()).size() >= 1) {
-//                            if (hand.stream().filter(o -> o.getIdNum() == 3)
-//                            .collect(Collectors.toList()).size() >= 1) {
-//                                if (hand.stream().filter(o -> o.getIdNum() == 4)
-//                                .collect(Collectors.toList()).size() >= 1) {
-//                                    if (hand.stream().filter(o -> o.getIdNum() == 5)
-//                                            .collect(Collectors.toList()).size() >= 1) {
-//                                        if (hand.stream().filter(o -> o.getIdNum() == 6)
-//                                                .collect(Collectors.toList()).size() >= 1) {
-//                                            if (hand.stream().filter(o -> o.getIdNum() == 7)
-//                                                    .collect(Collectors.toList()).size() >= 1) {
-//                                                if (hand.stream().filter(o -> o.getIdNum() == 8)
-//                                                        .collect(Collectors.toList()).size() >= 1) {
-//                                                    if (hand.stream().filter(o -> o.getIdNum() == 9)
-//                                                            .collect(Collectors.toList()).size() >= 3) {
-//                                                        yakumanCount += 1;
-//                                                        winingMessages.add(" Chuuren poutou 九連宝燈");
-//                                                    }
-//                                                }
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//    }
 
 
     // double yakuman
 
-
+    //Modify this
+// EFFECT determine if the hand contain tasuushi  yaku
     //This hand has four groups (triplets or quads) of all four wind tiles.
     private void taSuushi() {
         boolean eastpresent = false;
