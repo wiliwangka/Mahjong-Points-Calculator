@@ -15,7 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// the graphical user interface for the mahjong app
 public class Mahjongappgui extends JPanel {
+    //todo add riichi and tsumo function
     private boolean enterchannel;
     private JButton so1Button;
     private JButton so5Button;
@@ -53,7 +55,6 @@ public class Mahjongappgui extends JPanel {
     private JLabel tile14Label;
     private JPanel closedtilespane;
     private JButton man1Button;
-    private JPanel settingpane;
     private JLabel tile15Label;
     private JLabel tile16Label;
     private JLabel tile17Label;
@@ -105,6 +106,8 @@ public class Mahjongappgui extends JPanel {
     private JPanel manpane;
     private JPanel pinpane;
     private JPanel tilespanel;
+    private JPanel settingpane;
+    private JPanel closeopenswitchpane;
 
 
     private int s1Count;
@@ -170,7 +173,7 @@ public class Mahjongappgui extends JPanel {
 
     private String samplehandpath;
 
-
+    // Effect construct and record the action of buttons and radio boxes
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public Mahjongappgui() {
         initialization(0);
@@ -641,7 +644,48 @@ public class Mahjongappgui extends JPanel {
                     case "Ryuuiisou 緑一色":
                         h = "Ryuuiisou";
                         break;
-
+                    case "Honitsu 混一色":
+                        h = "Honitsu";
+                        break;
+                    case "Junchan taiyao 純全帯么":
+                        h = "Junchantaiyao";
+                        break;
+                    case "Ryanpeikou 二盃口":
+                        h = "Ryanpeikou";
+                        break;
+                    case "Ittsu 一気通貫":
+                        h = "Ittsu";
+                        break;
+                    case "Chanta 混全帯么九":
+                        h = "Chanta";
+                        break;
+                    case "Chiitoitsu 七対子":
+                        h = "Chiitoitsu";
+                        break;
+                    case "Honroutou 混老頭":
+                        h = "Honroutou";
+                        break;
+                    case "Shousangen 小三元":
+                        h = "Shousangen";
+                        break;
+                    case "三暗刻+三色同刻+対々和":
+                        h = "SanankouSanshokudoukouToitoi";
+                        break;
+                    case "Sankantsu 三槓子":
+                        h = "Sankantsu";
+                        break;
+                    case "Sanshoku doujun 三色同順":
+                        h = "Sanshokudoujun";
+                        break;
+                    case "Iipeikou 一盃口":
+                        h = "Iipeikou";
+                        break;
+                    case "Pinfu 平和":
+                        h = "Pinfu";
+                        break;
+                    case "Tanyao 断么九":
+                        h = "Tanyao";
+                        break;
                 }
 
                 samplehandpath = ("data/samplehands/" + h + ".json");
@@ -649,6 +693,8 @@ public class Mahjongappgui extends JPanel {
         });
     }
 
+    // Require int of one of 0 or 1
+//initialize the buttons and Jlabels by given numbers 0 being start of program and 1 for restart button
     private void initialization(int i) {
 
         handWriter = new HandWriter(JSON_STORE);
@@ -676,12 +722,11 @@ public class Mahjongappgui extends JPanel {
             samplehandselection.setSelectedIndex(0);
 
 
-
         }
 
     }
 
-
+    // EFFECT set icon for the mahjong buttons
     protected void setButtonIcon() {
 
         so1Button.setIcon((new ImageIcon("data/mahjongtiles/s1.jpg")));
@@ -727,6 +772,7 @@ public class Mahjongappgui extends JPanel {
 
     }
 
+    //Effect set label image for open and closed hand when the tile buttons is being click
     protected void setlabelrunner(String tile) {
 
         setLabelIcon(tile + ".jpg");
@@ -740,7 +786,8 @@ public class Mahjongappgui extends JPanel {
         }
     }
 
-
+    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
+// EFFECT set label image from different source based on input path
     protected void setLabelIcon(String file) {
         if (enterchannel) {
             switch (tilePositionCount + 1) {
@@ -853,7 +900,8 @@ public class Mahjongappgui extends JPanel {
         }
     }
 
-
+    //EFFECT clear labels image from JLABELS
+    @SuppressWarnings("checkstyle:MethodLength")
     public void clearlabels() {
         tile1Label.setIcon(null);
         tile2Label.setIcon(null);
@@ -893,7 +941,7 @@ public class Mahjongappgui extends JPanel {
 
     }
 
-
+    //EFFECT reset the count for tile Counter
     public void tileCountinitialization() {
         s1Count = 0;
         s2Count = 0;
@@ -936,6 +984,7 @@ public class Mahjongappgui extends JPanel {
 
     }
 
+    // EFFECT record and save the changes to the mahjong app
     protected void saveHand() {
 
         Mahjongapp app = new Mahjongapp();
@@ -954,6 +1003,7 @@ public class Mahjongappgui extends JPanel {
         }
     }
 
+    // EFFECT load hand from the save from previous entery
     protected void loadHand(String path) {
         try {
             HandReader r = new HandReader(path);
@@ -980,6 +1030,8 @@ public class Mahjongappgui extends JPanel {
 
     }
 
+    //Require String that represent a tiles in mahjong game
+    // EFFECT click the button represent by the tile enter
     protected void doclick(String s) {
         switch (s) {
             case "s1":
@@ -1101,13 +1153,5 @@ public class Mahjongappgui extends JPanel {
         return mahjongPanel;
     }
 
-//    public static void main(String[] args) {
-//
-//        JFrame frame = new JFrame("mahjongappgui");
-//        frame.setContentPane(new Mahjongappgui().mahjongPanel);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
-//
-//    }
+
 }

@@ -16,7 +16,7 @@ public class Main {
         frame.setVisible(true);
 
 
-        frame.setSize(1200, 700);
+        frame.setSize(1000, 700);
 
 
 

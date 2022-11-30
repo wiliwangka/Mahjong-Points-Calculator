@@ -12,6 +12,10 @@ public class So implements Tile {
     private boolean isInShuntsu;
     private int count;
 
+    private int inShuntsuCount;
+
+    private int startShuntsuCount;
+
     /*
      * REQUIRES: 1>= idNum >= 9
      * EFFECTS: construct an So tiles with id number count set to 0
@@ -21,6 +25,8 @@ public class So implements Tile {
         category = "So";
         startShuntsu = false;
         count = 0;
+        inShuntsuCount = 0;
+        startShuntsuCount = 0;
     }
 
     public int getIdNum() {
@@ -57,6 +63,22 @@ public class So implements Tile {
 
     public boolean isInShuntsu() {
         return isInShuntsu;
+    }
+
+    public int getInShuntsuCount() {
+        return inShuntsuCount;
+    }
+
+    public void increaseInShuntsuCount() {
+        inShuntsuCount += 1;
+    }
+
+    public int getstartofShuntsuCount() {
+        return startShuntsuCount;
+    }
+
+    public void increaseStartofShuntsuCount() {
+        startShuntsuCount += 1;
     }
 
     @Override

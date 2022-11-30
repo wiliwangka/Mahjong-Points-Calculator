@@ -1,7 +1,6 @@
 package model;
 //represent the scoring system in Riichi Mahjong
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -15,7 +14,6 @@ public class ScoreCalculator {
     private Tile s7 = new So(7);
     private Tile s8 = new So(8);
     private Tile s9 = new So(9);
-
 
     private Tile m1 = new Man(1);
     private Tile m2 = new Man(2);
@@ -66,7 +64,7 @@ public class ScoreCalculator {
 
     private ArrayList<String> winingMessages;
 
-    private int endtileCount;
+
     private ArrayList<Tile> openedhand;
     private ArrayList<Tile> closedhand;
 
@@ -89,7 +87,7 @@ public class ScoreCalculator {
         shuntsuCount = 0;
         pairCount = 0;
         eyeCount = 0;
-        endtileCount = 0;
+
         tripletCount = 0;
         sanshokuCount = 0;
         sanshokotsuCount = 0;
@@ -173,42 +171,49 @@ public class ScoreCalculator {
     }
 
     private void noYakuMan() {
-        //special yaku
-        winds();
-        honors();
+
         // one yaku
         tanyao();
-        closedhand();
+
         pinfu();
         iipeko();
         // two yaku
-        sanshoku();
-        sanshokotsu();
+//        sanshoku(); // todo
+//        sanshokotsu();
         sankoutsu();
         toitoi();
         sananko();
         shosanen();
         honroto();
         sevenpairs();
-        chanku();
+        if (!winingMessages.contains("Honroutou 混老頭")) {
+            chanta();
+        }
         itsu();
-        sanrenko();
+
         // three yaku
-        nipeko();
-        shunchanta();
-        ponitsu();
-        isosanshungtsu();
+        junchantaiyao();
+        honitsu();
+
         // six yaku
         purity();
+//special yaku
+
+        specialyaku();
+
+    }
+
+    private void specialyaku() {
+        if (!(winingMessages.contains("Daisuushii 大四喜") || winingMessages.contains("Shousuushii 小四喜"))) {
+            winds();
+        }
+        if (!(winingMessages.contains("Daisangen 大三元") || winingMessages.contains("Shousangen 小三元"))) {
+            honors();
+        }
     }
 
 //special yaku
 
-    private void riichi() {
-    }
-
-    private void dora() {
-    }
 
     private void winds() {
         int roundwindCount = 0;
@@ -226,104 +231,395 @@ public class ScoreCalculator {
         }
         if (roundwindCount > 0) {
             yaku += 1;
-            winingMessages.add("round wind");
+            winingMessages.add("Round Wind");
         }
         if (positionwindCount > 0) {
             yaku += 1;
-            winingMessages.add("position wind");
+            winingMessages.add("Self Wind");
         }
     }
 
     private void honors() {
+        boolean white = false;
+        boolean green = false;
+        boolean red = false;
+        for (Tile t : hand) {
+            if (t.getCatergory().equals("Honor")) {
+                if (t.getIdNum() == 1 && t.getCount() >= 3) {
+                    white = true;
+                } else if (t.getIdNum() == 2 && t.getCount() >= 3) {
+                    green = true;
+                } else if (t.getIdNum() == 3 && t.getCount() >= 3) {
+                    red = true;
+                }
+            }
+        }
+        if (white) {
+            yaku += 1;
+            winingMessages.add("White 白");
+        }
+        if (green) {
+            yaku += 1;
+            winingMessages.add("White 發");
+        }
+        if (red) {
+            yaku += 1;
+            winingMessages.add("White 中");
+        }
     }
 
     // one yaku
     private void tanyao() {
-        //            if (t.getIdNum() == 1 || t.getIdNum() == 9 || t.getCatergory()
-        //            == "Honor" || t.getCatergory() == "Wind") {
-//                endtileCount += 1;
-//            }
-//        }
-//        if (endtileCount == 0) {
-//            yaku += 1;
-//        }
-    }
+        int endtileCount = 0;
+        for (Tile t : hand) {
+            if (t.getIdNum() == 1 || t.getIdNum() == 9 || t.getCatergory()
+                    == "Honor" || t.getCatergory() == "Wind") {
+                endtileCount += 1;
+            }
+        }
 
-    private void closedhand() {
+        if (endtileCount == 0) {
+            yaku += 1;
+            winingMessages.add("Tanyao 断么九");
+        }
     }
 
 
     private void pinfu() {
+        if (openedhand.size() == 0) {
+            int shungtsucount = 0;
+            for (Tile t : closedhand) {
+                if (t.startOfShuntsu()) {
+                    shungtsucount += t.getstartofShuntsuCount();
+                }
+            }
+            if (shungtsucount == 4) {
+                yaku += 1;
+                winingMessages.add("Pinfu 平和");
+            }
+        }
     }
 
     private void iipeko() {
+        int iipekoCount = 0;
+        if (openedhand.size() == 0) {
+            for (Tile t : hand) {
+                if (t.getstartofShuntsuCount() == 2) {
+                    iipekoCount += 1;
+                }
+            }
+
+            if (iipekoCount / 2 == 1) {
+                yaku += 1;
+                winingMessages.add("Iipeikou 一盃口");
+
+            } else if (iipekoCount / 2 == 2) {
+                nipeko();
+            }
+        }
     }
 
 
     // two yaku
 
     private void sanshoku() {
+        //todo failure
+        ArrayList<Tile> s = (ArrayList<Tile>) hand.stream()
+                .filter(t -> t.startOfShuntsu()).collect(Collectors.toList());
+        boolean sanshoku = false;
+        final int firstnum = s.get(0).getIdNum();
+        int num = 0;
+
+
+        for (Tile t : s) {
+            if (t.getIdNum() != firstnum) {
+                num = t.getIdNum();
+            }
+        }
+        final int secnum = num;
+        ArrayList<Tile> s1 = (ArrayList<Tile>) s.stream().filter(t -> t.getIdNum() == firstnum)
+                .collect(Collectors.toList());
+        ArrayList<Tile> s2 = (ArrayList<Tile>) s.stream().filter(t -> t.getIdNum() == secnum)
+                .collect(Collectors.toList());
+        if (s1.size() >= 3 || s2.size() >= 3) {
+            yaku += 2;
+            winingMessages.add("Sanshoku doujun 三色同順");
+        }
     }
 
     private void sanshokotsu() {
+        //todo failure
+        ArrayList<Tile> s = (ArrayList<Tile>) hand.stream().filter(t -> t.getCount() == 3).collect(Collectors.toList());
+        boolean sanshokotsu = false;
+        final int firstnum = s.get(0).getIdNum();
+        int num = 0;
+
+
+        for (Tile t : s) {
+            if (t.getIdNum() != firstnum) {
+                num = t.getIdNum();
+            }
+        }
+        final int secnum = num;
+        ArrayList<Tile> s1 = (ArrayList<Tile>) s.stream().filter(t -> t.getIdNum() == firstnum)
+                .collect(Collectors.toList());
+        ArrayList<Tile> s2 = (ArrayList<Tile>) s.stream().filter(t -> t.getIdNum() == secnum)
+                .collect(Collectors.toList());
+        if (s1.size() == 9 || s2.size() == 9) {
+            yaku += 2;
+            winingMessages.add("Sanshoku doukou 三色同刻");
+        }
+
     }
 
     private void sankoutsu() {
+        if (koutsuCount / 4 == 3) {
+            yaku += 2;
+            winingMessages.add("Sankantsu 三槓子");
+        }
     }
 
     private void toitoi() {
+        if (tripletCount / 3 + koutsuCount / 4 >= 4) {
+            yaku += 2;
+            winingMessages.add("Toitoi 対々和 ");
+
+
+        }
+
     }
 
     private void sananko() {
+
         int ankoCount = 0;
         for (Tile t : closedhand) {
             if (t.getCount() == 3 && !t.isInShuntsu()) {
-                tripletCount += 1;
+                ankoCount += 1;
             }
         }
-        if (ankoCount / 4 == 3) {
+        if (ankoCount / 3 == 3) {
             yaku += 2;
             winingMessages.add("Sanankou 三暗刻");
         }
     }
 
     private void shosanen() {
+
+        int whitecount = 0;
+        int greencount = 0;
+        int redcount = 0;
+
+        for (Tile t : hand) {
+            if (t.getCatergory().equals("Honor")) {
+                if (t.getIdNum() == 1) {
+                    whitecount = t.getCount();
+                } else if (t.getIdNum() == 2) {
+                    greencount = t.getCount();
+                } else if (t.getIdNum() == 3) {
+                    redcount = t.getCount();
+                }
+            }
+        }
+        if ((whitecount >= 3 && greencount >= 3 && redcount >= 3)
+                || (whitecount >= 3 && greencount >= 3 && redcount == 2)
+                || (whitecount >= 3 && greencount == 2 && redcount >= 3)
+                || (whitecount == 2 && greencount >= 3 && redcount >= 3)) {
+            yakumanCount += 1;
+            winingMessages.add("Shousangen 小三元");
+        }
+
     }
 
     private void honroto() {
+
+        boolean chanku = true;
+        for (Tile t : hand) {
+            if (!(t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor"))) {
+                if (!(t.getIdNum() == 1 || t.getIdNum() == 9)) {
+                    chanku = false;
+                }
+            }
+        }
+
+        if (chanku) {
+            yaku += 2;
+            winingMessages.add("Honroutou 混老頭");
+        }
     }
 
     private void sevenpairs() {
-
+        if (openedhand.size() == 0) {
+            if (pairCount / 2 == 7) {
+                yaku += 2;
+                winingMessages.add("Chiitoitsu 七対子");
+            }
+        }
     }
 
-    private void chanku() {
-
+    private void chanta() {
+        //todo failure prodiction
+        boolean chanta = true;
+        for (Tile t : hand) {
+            if (!(t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor"))) {
+                if (!(t.getIdNum() == 1 || t.getIdNum() == 9)) {
+                    if (!(t.getIdNum() == 2 || t.getIdNum() == 3 || t.getIdNum() == 7 || t.getIdNum() == 8)) {
+                        chanta = false;
+                    }
+                    if (!t.isInShuntsu()) {
+                        chanta = false;
+                    }
+                }
+            }
+        }
+        if (chanta && openedhand.size() == 0) {
+            yaku += 2;
+            winingMessages.add("Chanta 混全帯么九");
+        } else if (chanta) {
+            yaku += 1;
+            winingMessages.add("Chanta 混全帯么九 (opened)");
+        }
     }
 
 
     private void itsu() {
-
+        //todo fail to detect itsu
+        ArrayList<Tile> manhand = new ArrayList<Tile>();
+        ArrayList<Tile> sohand = new ArrayList<Tile>();
+        ArrayList<Tile> pinhand = new ArrayList<Tile>();
+        for (Tile t : hand) {
+            switch (t.getCatergory()) {
+                case "Man":
+                    manhand.add(t);
+                    break;
+                case "So":
+                    sohand.add(t);
+                    break;
+                case "Pin":
+                    pinhand.add(t);
+                    break;
+            }
+        }
+        if (itsuhelper(manhand) || itsuhelper(sohand) || itsuhelper(pinhand)) {
+            if (openedhand.size() == 0) {
+                yaku += 2;
+                winingMessages.add("Ittsu 一気通貫");
+            } else {
+                yaku += 1;
+                winingMessages.add("Ittsu 一気通貫 (opned)");
+            }
+        }
     }
 
-    private void sanrenko() {
+    private boolean itsuhelper(ArrayList<Tile> hand) {
+        boolean onecheck = false;
+        boolean twocheck = false;
+        boolean threecheck = false;
+        boolean fourcheck = false;
+        boolean fivecheck = false;
+        boolean sixcheck = false;
+        boolean sevencheck = false;
+        boolean eightcheck = false;
+        boolean ninecheck = false;
+        if (hand.size() < 9) {
+            return false;
+        }
+        for (Tile t : hand) {
+            if (t.isInShuntsu()) {
+                switch (t.getIdNum()) {
+                    case 1:
+                        onecheck = true;
+                        break;
+                    case 2:
+                        twocheck = true;
+                        break;
+                    case 3:
+                        threecheck = true;
+                        break;
+                    case 4:
+                        fourcheck = true;
+                        break;
+                    case 5:
+                        fivecheck = true;
+                        break;
+                    case 6:
+                        sixcheck = true;
+                        break;
+                    case 7:
+                        sevencheck = true;
+                        break;
+                    case 8:
+                        eightcheck = true;
+                        break;
+                    case 9:
+                        ninecheck = true;
+                        break;
+                }
+            }
+        }
+        if (onecheck && twocheck && threecheck && fourcheck
+                && fivecheck && sixcheck && sevencheck && eightcheck && ninecheck) {
+            return true;
+        }
+        return false;
     }
 
     // three yaku
     private void nipeko() {
+        //todo no sever pair when have nipeko //chanta will trigger this ???
+        yaku += 3;
+        winingMessages.add("Ryanpeikou 二盃口");
 
     }
 
-    private void shunchanta() {
+    private void junchantaiyao() {
+        boolean junchanta = true;
+        for (Tile t : hand) {
+            if (t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor")) {
+                junchanta = false;
+            }
+            if (!(t.getIdNum() == 1 || t.getIdNum() == 9)) {
+                if (!(t.getIdNum() == 2 || t.getIdNum() == 3 || t.getIdNum() == 7 || t.getIdNum() == 8)
+                        || !t.isInShuntsu()) {
+                    junchanta = false;
+                }
+            }
+        }
+
+        if (junchanta && openedhand.size() == 0) {
+            yaku += 3;
+            winingMessages.add("Junchan taiyao 純全帯么");
+        } else if (junchanta && openedhand.size() > 0) {
+            yaku += 2;
+            winingMessages.add("Junchan taiyao 純全帯么 (opned)");
+        }
 
     }
 
-    private void ponitsu() {
 
-    }
+    private void honitsu() {
+        boolean ispure = true;
+        String color = "";
+        for (Tile t : hand) {
+            if (!(t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor"))) {
+                color = t.getCatergory();
+                break;
+            }
+        }
 
-    private void isosanshungtsu() {
-
+        for (Tile t : hand) {
+            if (!(t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor"))) {
+                if (!t.getCatergory().equals(color)) {
+                    ispure = false;
+                }
+            }
+        }
+        if (ispure && openedhand.size() == 0) {
+            yaku += 3;
+            winingMessages.add("Honitsu 混一色");
+        } else if (ispure && openedhand.size() > 0) {
+            yaku += 2;
+            winingMessages.add("Honitsu 混一色 (opned)");
+        }
     }
 
 
@@ -334,7 +630,7 @@ public class ScoreCalculator {
         boolean ispurity = true;
         String color = hand.get(1).getCatergory();
         for (Tile t : hand) {
-            if (t.getCatergory().equals("Wind") || t.getCatergory().equals("Wind")) {
+            if (t.getCatergory().equals("Wind") || t.getCatergory().equals("Honor")) {
                 ispurity = false;
             }
             if (!t.getCatergory().equals(color)) {
@@ -414,8 +710,10 @@ public class ScoreCalculator {
     private void chunroto() {
         int endtilescount = 0;
         for (Tile t : hand) {
-            if (t.getIdNum() == 1 || t.getIdNum() == 9) {
-                endtilescount += 1;
+            if (t.getCatergory().equals("Man") || t.getCatergory().equals("So") || t.getCatergory().equals("Pin")) {
+                if (t.getIdNum() == 1 || t.getIdNum() == 9) {
+                    endtilescount += 1;
+                }
             }
         }
         if (endtilescount >= 14 && tripletCount + koutsuCount >= 4) {
@@ -698,13 +996,6 @@ public class ScoreCalculator {
         this.winingMessages = winingMessages;
     }
 
-    public int getEndtileCount() {
-        return endtileCount;
-    }
-
-    public void setEndtileCount(int endtileCount) {
-        this.endtileCount = endtileCount;
-    }
 
     public ArrayList<Tile> getOpenedhand() {
         return openedhand;

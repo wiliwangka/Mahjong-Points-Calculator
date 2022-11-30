@@ -12,6 +12,9 @@ public class Honor implements Tile {
 
     private int count;
 
+    private int inShuntsuCount;
+    private int startShuntsuCount;
+
     /*
      * REQUIRES: 1>= idNum >= 3
      * EFFECTS: construct an honor tiles with id number count set to 0
@@ -21,6 +24,8 @@ public class Honor implements Tile {
         category = "Honor";
         startShuntsu = false;
         count = 0;
+        inShuntsuCount = 0;
+        startShuntsuCount = 0;
     }
 
     public int getIdNum() {
@@ -57,6 +62,22 @@ public class Honor implements Tile {
 
     public boolean isInShuntsu() {
         return isInShuntsu;
+    }
+
+    public int getInShuntsuCount() {
+        return inShuntsuCount;
+    }
+
+    public void increaseInShuntsuCount() {
+        inShuntsuCount += 1;
+    }
+
+    public int getstartofShuntsuCount() {
+        return startShuntsuCount;
+    }
+
+    public void increaseStartofShuntsuCount() {
+        startShuntsuCount += 1;
     }
 
     @Override

@@ -14,6 +14,10 @@ public class Wind implements Tile {
 
     private int count;
 
+    private int inShuntsuCount;
+
+    private int startShuntsuCount;
+
     /*
      * REQUIRES: 1>= idNum >= 4
      * EFFECTS: construct a wind tiles with id number duplication count set to 0
@@ -23,6 +27,8 @@ public class Wind implements Tile {
         category = "Wind";
         startShuntsu = false;
         count = 0;
+        inShuntsuCount = 0;
+        startShuntsuCount = 0;
     }
 
     public int getIdNum() {
@@ -61,6 +67,20 @@ public class Wind implements Tile {
         return isInShuntsu;
     }
 
+    public int getInShuntsuCount() {
+        return inShuntsuCount;
+    }
+
+    public void increaseInShuntsuCount() {
+        inShuntsuCount += 1;
+    }
+    public int getstartofShuntsuCount() {
+        return startShuntsuCount;
+    }
+
+    public void increaseStartofShuntsuCount() {
+        startShuntsuCount += 1;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

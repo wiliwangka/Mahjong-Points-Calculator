@@ -22,6 +22,9 @@ public class Mahjong {
     private int round;
     private int position;
 
+    private ArrayList<Tile> shungtsutiles;
+    private ArrayList<Tile> shungtsutilessearch;
+
     private Tile s1 = new So(1);
     private Tile s2 = new So(2);
     private Tile s3 = new So(3);
@@ -269,28 +272,56 @@ public class Mahjong {
     }
 
     public void setStartShuntsu(String s) {
-        ArrayList<Tile> tiles = new ArrayList<Tile>();
+        shungtsutiles = new ArrayList<Tile>();
+        shungtsutilessearch = new ArrayList<Tile>();
         if (s.equals("c")) {
-            tiles = closedhand;
-        } else if (s.equals("o")) {
-            tiles = openedhand;
-        }
 
-        for (Tile t1 : tiles) {
-            if ((t1.getCatergory().equals("Man") || t1.getCatergory().equals("So")
-                    || t1.getCatergory().equals("Pin")) && t1.getIdNum() <= 7) {
-                for (Tile t2 : tiles) {
-                    if (t2.getCatergory().equals(t1.getCatergory()) && (t2.getIdNum() == t1.getIdNum() + 1)) {
-                        for (Tile t3 : tiles) {
-                            if (t3.getCatergory().equals(t2.getCatergory()) && (t3.getIdNum() == t2.getIdNum() + 1)) {
-                                t1.setStartShuntsu(true);
-                                t1.setInShuntsu(true);
-                                t2.setInShuntsu(true);
-                                t3.setInShuntsu(true);
+            shungtsutiles = (ArrayList<Tile>) closedhand.clone();
+            shungtsutilessearch = (ArrayList<Tile>) closedhand.clone();
+
+        } else if (s.equals("o")) {
+            shungtsutiles = (ArrayList<Tile>) openedhand.clone();
+            shungtsutilessearch = (ArrayList<Tile>) openedhand.clone();
+        }
+        shuntsuhelper();
+    }
+
+    private void shuntsuhelper() {
+        if (shungtsutiles.size() > 2) {
+            for (Tile t1 : shungtsutiles) {
+                if ((t1.getCatergory().equals("Man") || t1.getCatergory().equals("So")
+                        || t1.getCatergory().equals("Pin")) && t1.getIdNum() <= 7) {
+                    for (Tile t2 : shungtsutilessearch) {
+                        if (t2.getCatergory().equals(t1.getCatergory()) && (t2.getIdNum() == t1.getIdNum() + 1)) {
+                            for (Tile t3 : shungtsutilessearch) {
+                                if (t3.getCatergory().equals(t2.getCatergory()) && (t3.getIdNum() == t2.getIdNum() + 1)
+                                        && !(t1.getCount() > 3 && t2.getCount() > 3 && t3.getCount() > 3)) {
+                                    t1.setStartShuntsu(true);
+                                    t1.setInShuntsu(true);
+                                    t2.setInShuntsu(true);
+                                    t3.setInShuntsu(true);
+                                    shungtsutiles.remove(t1);
+                                    shungtsutiles.remove(t2);
+                                    shungtsutiles.remove(t3);
+                                    shungtsutilessearch.remove(t1);
+                                    shungtsutilessearch.remove(t2);
+                                    shungtsutilessearch.remove(t3);
+                                    t1.increaseStartofShuntsuCount();
+                                    t2.increaseInShuntsuCount();
+                                    t3.increaseInShuntsuCount();
+                                    shuntsuhelper();
+                                    return;
+
+
+
+                                }
+//                                break;
                             }
                         }
+//                        break;
                     }
                 }
+//                break;
             }
         }
     }

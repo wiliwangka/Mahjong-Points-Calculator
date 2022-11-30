@@ -2,6 +2,9 @@ package model;
 
 //Represents a tile
 public interface Tile {
+
+
+
     //EFFECTS: Returns the id number of the tile
     int getIdNum();
 
@@ -26,5 +29,12 @@ public interface Tile {
 
     boolean isInShuntsu();
 
+    int getInShuntsuCount();
+
+    void increaseInShuntsuCount();
+
+    int getstartofShuntsuCount();
+
+    void increaseStartofShuntsuCount();
 
 }

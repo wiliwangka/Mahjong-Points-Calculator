@@ -8,7 +8,11 @@ public class Pin implements Tile {
     private String category;
     private boolean startShuntsu;
     private boolean isInShuntsu;
+
     private int count;
+
+    private int inShuntsuCount;
+    private int startShuntsuCount;
 
     /*
      * REQUIRES: 1>= idNum >= 9
@@ -19,6 +23,8 @@ public class Pin implements Tile {
         category = "Pin";
         startShuntsu = false;
         count = 0;
+        inShuntsuCount = 0;
+        startShuntsuCount = 0;
     }
 
     public int getIdNum() {
@@ -57,6 +63,20 @@ public class Pin implements Tile {
         return isInShuntsu;
     }
 
+    public int getInShuntsuCount() {
+        return inShuntsuCount;
+    }
+
+    public void increaseInShuntsuCount() {
+        inShuntsuCount += 1;
+    }
+    public int getstartofShuntsuCount() {
+        return startShuntsuCount;
+    }
+
+    public void increaseStartofShuntsuCount() {
+        startShuntsuCount += 1;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
