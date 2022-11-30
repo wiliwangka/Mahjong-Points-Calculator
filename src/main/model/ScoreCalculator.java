@@ -495,7 +495,7 @@ public class ScoreCalculator {
         }
     }
 
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    @SuppressWarnings("methodlength")
     private boolean itsuhelper(ArrayList<Tile> hand) {
         boolean onecheck = false;
         boolean twocheck = false;

@@ -174,7 +174,7 @@ public class Mahjongappgui extends JPanel {
     private String samplehandpath;
 
     // Effect construct and record the action of buttons and radio boxes
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    @SuppressWarnings("methodlength")
     public Mahjongappgui() {
         initialization(0);
 
@@ -792,127 +792,134 @@ public class Mahjongappgui extends JPanel {
 
     // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
 // EFFECT set label image from different source based on input path
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+
     protected void setLabelIcon(String file) {
         if (enterchannel) {
-            switch (tilePositionCount + 1) {
-                case 1:
-                    tile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 2:
-                    tile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 3:
-                    tile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 4:
-                    tile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 5:
-                    tile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 6:
-                    tile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 7:
-                    tile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 8:
-                    tile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 9:
-                    tile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 10:
-                    tile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 11:
-                    tile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 12:
-                    tile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 13:
-                    tile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 14:
-                    tile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 15:
-                    tile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 16:
-                    tile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 17:
-                    tile17Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 18:
-                    tile18Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-            }
+            setcbuttons(file);
         } else {
-            switch (opentilePositionCount + 1) {
-                case 1:
-                    otile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 2:
-                    otile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 3:
-                    otile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 4:
-                    otile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 5:
-                    otile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 6:
-                    otile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 7:
-                    otile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 8:
-                    otile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 9:
-                    otile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 10:
-                    otile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 11:
-                    otile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 12:
-                    otile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 13:
-                    otile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 14:
-                    otile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 15:
-                    otile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-                case 16:
-                    otile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                    break;
-            }
+            setobuttons(file);
+        }
+    }
+
+    @SuppressWarnings("methodlength")
+    private void setobuttons(String file) {
+        switch (opentilePositionCount + 1) {
+            case 1:
+                otile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 2:
+                otile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 3:
+                otile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 4:
+                otile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 5:
+                otile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 6:
+                otile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 7:
+                otile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 8:
+                otile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 9:
+                otile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 10:
+                otile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 11:
+                otile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 12:
+                otile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 13:
+                otile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 14:
+                otile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 15:
+                otile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 16:
+                otile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+        }
+    }
+
+    @SuppressWarnings("methodlength")
+    private void setcbuttons(String file) {
+        switch (tilePositionCount + 1) {
+            case 1:
+                tile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 2:
+                tile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 3:
+                tile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 4:
+                tile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 5:
+                tile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 6:
+                tile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 7:
+                tile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 8:
+                tile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 9:
+                tile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 10:
+                tile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 11:
+                tile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 12:
+                tile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 13:
+                tile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 14:
+                tile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 15:
+                tile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 16:
+                tile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 17:
+                tile17Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 18:
+                tile18Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
         }
     }
 
     //EFFECT clear labels image from JLABELS
 
     public void clearlabels() {
-
-
         clearclabel();
         clearolabel();
-
     }
 
     private void clearclabel() {
@@ -1054,7 +1061,7 @@ public class Mahjongappgui extends JPanel {
 
     //Require String that represent a tiles in mahjong game
     // EFFECT click the button represent by the tile enter
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    @SuppressWarnings("methodlength")
     protected void doclick(String s) {
         switch (s) {
             case "s1":
