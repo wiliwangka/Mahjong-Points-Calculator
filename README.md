@@ -80,13 +80,20 @@ Event: Save hand
 Fri Dec 02 02:52:48 PST 2022
 Event: Calculate hand
 
+Fri Dec 02 03:21:08 PST 2022
+Event: Score earned =28
+hand contains:[Daisuushii 大四喜]
+
 
 ### Phase 4: Task 3
 
 ---
-As a reflection of the structure of my classes, I came to realize that a abstract class might be a better
-fit for the Tile interface in my program for the reason that all Tile implemented class all have the same 
-methods and fields. Using a abstract class and present alot of copy/pasting of the same code and makes 
-the code structure cleaner.
+As a reflection of the structure of my classes,I came to realize that I don't really need a Tile interface to 
+represent the variations of different tiles. As all my tile class that implement the Tile interface have 
+ the same methods and fields, using a interface hierarchy forced me to implement every of the five class I have
+for tile for basically identical methods. Perhapes a abstract class will be better for such a structure which I can 
+just implement the tile super class for the rest of subclass to work. This would make my code cleaner and 
+prevent alot of copying and pasting.
+
 
 

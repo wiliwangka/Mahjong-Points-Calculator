@@ -556,6 +556,8 @@ public class Mahjongappgui extends JPanel {
                     int yaku = score.getYaku() + 14 * score.getYakumanCount() + 28 * score.getDoubleyakumanCount();
                     JOptionPane.showMessageDialog(null, "Your yaku is:" + yaku
                             + "\n your point contains:" + "\n" + Arrays.toString(score.getWiningMessages().toArray()));
+                    EventLog.getInstance().logEvent(new Event("Event: Score earned = " + yaku
+                            + "\n hand contains:" + Arrays.toString(score.getWiningMessages().toArray())));
                 }
 
             }
