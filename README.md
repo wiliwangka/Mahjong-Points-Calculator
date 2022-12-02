@@ -31,8 +31,8 @@ ___
 - As a user, I want to load sample hands into the calculator
 
 
-
 ## Instructions for Grader
+
 ---
 - You can generate the first required event related to adding Xs to a Y by clicking on any one of the buttons
 with a tile icons on it.  
@@ -45,3 +45,48 @@ and click load sample hand.
 - after adding enough tile of tiplets (XXX), Kuntsu (XXXX), Shuntsu (X X+1 X+2) and a pair(XX) you may have 
 at least 14 tiles in your hand and for every kuntsu your tiles limit increase by one and up to 18 tiles.
 - You can press the calculate button of get the point for your hand.
+
+### Phase 4: Task 2
+
+---
+
+
+
+Fri Dec 02 02:52:34 PST 2022
+Event: select a sample hand
+
+
+Fri Dec 02 02:52:34 PST 2022
+Event: Added Tile h1
+
+Fri Dec 02 02:52:34 PST 2022
+Event: Added Tile m1
+
+Fri Dec 02 02:52:35 PST 2022
+Event: Added Tile w3
+
+Fri Dec 02 02:52:35 PST 2022
+Event: set wind to West
+
+Fri Dec 02 02:52:35 PST 2022
+Event: set position to East
+
+Fri Dec 02 02:52:35 PST 2022
+Event: Loaded sample hand from library
+
+Fri Dec 02 02:52:38 PST 2022
+Event: Save hand
+
+Fri Dec 02 02:52:48 PST 2022
+Event: Calculate hand
+
+
+### Phase 4: Task 3
+
+---
+As a reflection of the structure of my classes, I came to realize that a abstract class might be a better
+fit for the Tile interface in my program for the reason that all Tile implemented class all have the same 
+methods and fields. Using a abstract class and present alot of copy/pasting of the same code and makes 
+the code structure cleaner.
+
+

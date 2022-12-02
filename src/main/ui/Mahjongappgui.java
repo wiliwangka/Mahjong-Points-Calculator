@@ -195,7 +195,6 @@ public class Mahjongappgui extends JPanel {
                 }
 
 
-
             }
         });
         so2Button.addActionListener(new ActionListener() {
@@ -571,19 +570,19 @@ public class Mahjongappgui extends JPanel {
                         break;
                     case "East":
                         round = 1;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to East"));
+                        EventLog.getInstance().logEvent(new Event("Event:  set wind to East"));
                         break;
                     case "South":
                         round = 2;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to South"));
+                        EventLog.getInstance().logEvent(new Event("Event: set wind to South"));
                         break;
                     case "West":
                         round = 3;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to West"));
+                        EventLog.getInstance().logEvent(new Event("Event: set wind to West"));
                         break;
                     case "North":
                         round = 4;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to North"));
+                        EventLog.getInstance().logEvent(new Event("Event: set wind to North"));
                         break;
 
                 }
@@ -600,19 +599,19 @@ public class Mahjongappgui extends JPanel {
                         break;
                     case "East":
                         position = 1;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to East"));
+                        EventLog.getInstance().logEvent(new Event("Event: set position to East"));
                         break;
                     case "South":
                         position = 2;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to South"));
+                        EventLog.getInstance().logEvent(new Event("Event: set position to South"));
                         break;
                     case "West":
                         position = 3;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to West"));
+                        EventLog.getInstance().logEvent(new Event("Event: set position to West"));
                         break;
                     case "North":
                         position = 4;
-                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to North"));
+                        EventLog.getInstance().logEvent(new Event("Event:  set position to North"));
                         break;
 
                 }
@@ -655,7 +654,7 @@ public class Mahjongappgui extends JPanel {
                     JOptionPane.showMessageDialog(null, "please select a sample hand to load");
                 } else {
                     loadHand(samplehandpath);
-                    EventLog.getInstance().logEvent(new Event("Event: Load sample hand from library"));
+                    EventLog.getInstance().logEvent(new Event("Event: Loaded sample hand from library"));
                 }
 
 
@@ -762,6 +761,10 @@ public class Mahjongappgui extends JPanel {
 
                 JTextArea textArea = new JTextArea(l.gatherlogtext(EventLog.getInstance()));
                 JScrollPane scrollPane = new JScrollPane(textArea);
+
+                final Dimension d = scrollPane.getSize();
+                scrollPane.setPreferredSize(new Dimension(250, 500));
+
                 textArea.setLineWrap(true);
                 textArea.setWrapStyleWord(true);
                 JOptionPane.showMessageDialog(null, scrollPane, "Event Log",
