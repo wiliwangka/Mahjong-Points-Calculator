@@ -5,45 +5,6 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class ScoreCalculator {
-    private Tile s1 = new So(1);
-    private Tile s2 = new So(2);
-    private Tile s3 = new So(3);
-    private Tile s4 = new So(4);
-    private Tile s5 = new So(5);
-    private Tile s6 = new So(6);
-    private Tile s7 = new So(7);
-    private Tile s8 = new So(8);
-    private Tile s9 = new So(9);
-
-    private Tile m1 = new Man(1);
-    private Tile m2 = new Man(2);
-    private Tile m3 = new Man(3);
-    private Tile m4 = new Man(4);
-    private Tile m5 = new Man(5);
-    private Tile m6 = new Man(6);
-    private Tile m7 = new Man(7);
-    private Tile m8 = new Man(8);
-    private Tile m9 = new Man(9);
-
-    private Tile p1 = new Pin(1);
-    private Tile p2 = new Pin(2);
-    private Tile p3 = new Pin(3);
-    private Tile p4 = new Pin(4);
-    private Tile p5 = new Pin(5);
-    private Tile p6 = new Pin(6);
-    private Tile p7 = new Pin(7);
-    private Tile p8 = new Pin(8);
-    private Tile p9 = new Pin(9);
-
-    private Tile w1 = new Wind(1);
-    private Tile w2 = new Wind(2);
-    private Tile w3 = new Wind(3);
-    private Tile w4 = new Wind(4);
-
-    private Tile h1 = new Honor(1);
-    private Tile h2 = new Honor(2);
-    private Tile h3 = new Honor(3);
-
     private int round;
     private int position;
     private int score;
@@ -156,14 +117,16 @@ public class ScoreCalculator {
 
     // EFFECT computer score for hand that that doesn't have yakuman
     private void noYakuMan() {
-
-        // one yaku
-        tanyao();
-
-        pinfu();
-        iipeko();
+        // six yaku
+        purity();
+//special yaku
+        // three yaku
+        junchantaiyao();
+        if (!(winingMessages.contains("Chinitsu 清一色") || winingMessages.contains("Chinitsu 清一色 (opned)"))) {
+            honitsu();
+        }
         // two yaku
-//        sanshoku(); // todo
+        sanshoku(); // todo
 //        sanshokotsu();
         sankoutsu();
         toitoi();
@@ -176,13 +139,10 @@ public class ScoreCalculator {
         }
         itsu();
 
-        // three yaku
-        junchantaiyao();
-        honitsu();
-
-        // six yaku
-        purity();
-//special yaku
+        // one yaku
+        tanyao();
+        pinfu();
+        iipeko();
 
         specialyaku();
 
@@ -314,8 +274,6 @@ public class ScoreCalculator {
         boolean sanshoku = false;
         final int firstnum = s.get(0).getIdNum();
         int num = 0;
-
-
         for (Tile t : s) {
             if (t.getIdNum() != firstnum) {
                 num = t.getIdNum();
@@ -326,9 +284,22 @@ public class ScoreCalculator {
                 .collect(Collectors.toList());
         ArrayList<Tile> s2 = (ArrayList<Tile>) s.stream().filter(t -> t.getIdNum() == secnum)
                 .collect(Collectors.toList());
-        if (s1.size() >= 3 || s2.size() >= 3) {
-            yaku += 2;
-            winingMessages.add("Sanshoku doujun 三色同順");
+        sanshokuhelper(s1, s2);
+    }
+
+    private void sanshokuhelper(ArrayList<Tile> s1, ArrayList<Tile> s2) {
+        ArrayList<Tile> s;
+        if (s1.size() > s2.size()) {
+            s = s1;
+        } else {
+            s = s2;
+        }
+        if (s.size() >= 3) {
+            if (!(s.get(0).getCatergory().equals(s.get(1).getCatergory())
+                    && s.get(0).getCatergory().equals(s.get(2).getCatergory()))) {
+                yaku += 2;
+                winingMessages.add("Sanshoku doujun 三色同順");
+            }
         }
     }
 
@@ -762,10 +733,12 @@ public class ScoreCalculator {
 // EFFECT determine if the hand contain kokushi musou yaku
     //This hand has one of each of the 13 different terminal and honor tiles plus one extra terminal or honour tile.
     private void gokusumuso() {
-        if (hand.contains(s1) && hand.contains(s9) && hand.contains(m1) && hand.contains(m9)
-                && hand.contains(p1) && hand.contains(p9) && hand.contains(w1) && hand.contains(w2)
-                && hand.contains(w3) && hand.contains(w4) && hand.contains(h1) && hand.contains(h2)
-                && hand.contains(h3)) {
+        if (hand.contains(new So(1)) && hand.contains(new So(9)) && hand.contains(new Man(1))
+                && hand.contains(new Man(9)) && hand.contains(new Pin(1))
+                && hand.contains(new Pin(9)) && hand.contains(new Wind(1))
+                && hand.contains(new Wind(2)) && hand.contains(new Wind(3))
+                && hand.contains(new Wind(4)) && hand.contains(new Honor(1))
+                && hand.contains(new Honor(2)) && hand.contains(new Honor(3))) {
             yakumanCount += 1;
             winingMessages.add("Kokushi musou 国士無双 ");
         }

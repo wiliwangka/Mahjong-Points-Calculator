@@ -25,13 +25,13 @@ public class Mahjongapp {
 
     private ArrayList<String> closedhand;
 
-    private static final String JSON_STORE = "./data/hand.json";
-
-    private HandWriter handWriter;
-
-
-    private HandReader handReader;
-    private Scanner scanner = new Scanner(System.in);
+//    private static final String JSON_STORE = "./data/hand.json";
+//
+//    private HandWriter handWriter;
+//
+//
+//    private HandReader handReader;
+//    private Scanner scanner = new Scanner(System.in);
 
 
     //EFFECTS: run the mahjong application and r

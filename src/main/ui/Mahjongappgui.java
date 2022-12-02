@@ -1,11 +1,14 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Mahjong;
 import model.ScoreCalculator;
 import persistence.HandReader;
 import persistence.HandWriter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -108,6 +111,8 @@ public class Mahjongappgui extends JPanel {
     private JPanel tilespanel;
     private JPanel settingpane;
     private JPanel closeopenswitchpane;
+    private JButton printlogbutton;
+    private JButton clearlogbutton;
 
 
     private int s1Count;
@@ -186,7 +191,9 @@ public class Mahjongappgui extends JPanel {
                 if (s1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s1Count += 1;
                     setlabelrunner("s1");
+                    addtilesevent("s1");
                 }
+
 
 
             }
@@ -197,6 +204,7 @@ public class Mahjongappgui extends JPanel {
                 if (s2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s2Count += 1;
                     setlabelrunner("s2");
+                    addtilesevent("s2");
                 }
             }
         });
@@ -206,6 +214,7 @@ public class Mahjongappgui extends JPanel {
                 if (s3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s3Count += 1;
                     setlabelrunner("s3");
+                    addtilesevent("s3");
                 }
             }
         });
@@ -215,6 +224,7 @@ public class Mahjongappgui extends JPanel {
                 if (s4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s4Count += 1;
                     setlabelrunner("s4");
+                    addtilesevent("s4");
                 }
             }
         });
@@ -224,6 +234,7 @@ public class Mahjongappgui extends JPanel {
                 if (s5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s5Count += 1;
                     setlabelrunner("s5");
+                    addtilesevent("s5");
                 }
             }
         });
@@ -233,6 +244,7 @@ public class Mahjongappgui extends JPanel {
                 if (s6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s6Count += 1;
                     setlabelrunner("s6");
+                    addtilesevent("s6");
                 }
             }
         });
@@ -242,6 +254,7 @@ public class Mahjongappgui extends JPanel {
                 if (s7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s7Count += 1;
                     setlabelrunner("s7");
+                    addtilesevent("s7");
                 }
             }
         });
@@ -251,6 +264,7 @@ public class Mahjongappgui extends JPanel {
                 if (s8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s8Count += 1;
                     setlabelrunner("s8");
+                    addtilesevent("s8");
                 }
             }
         });
@@ -260,6 +274,7 @@ public class Mahjongappgui extends JPanel {
                 if (s9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     s9Count += 1;
                     setlabelrunner("s9");
+                    addtilesevent("s9");
                 }
             }
         });
@@ -269,6 +284,7 @@ public class Mahjongappgui extends JPanel {
                 if (m1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m1Count += 1;
                     setlabelrunner("m1");
+                    addtilesevent("m1");
                 }
             }
         });
@@ -278,6 +294,7 @@ public class Mahjongappgui extends JPanel {
                 if (m2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m2Count += 1;
                     setlabelrunner("m2");
+                    addtilesevent("m2");
                 }
             }
         });
@@ -287,6 +304,7 @@ public class Mahjongappgui extends JPanel {
                 if (m3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m3Count += 1;
                     setlabelrunner("m3");
+                    addtilesevent("m3");
                 }
             }
         });
@@ -296,6 +314,7 @@ public class Mahjongappgui extends JPanel {
                 if (m4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m4Count += 1;
                     setlabelrunner("m4");
+                    addtilesevent("m4");
                 }
             }
         });
@@ -305,6 +324,7 @@ public class Mahjongappgui extends JPanel {
                 if (m5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m5Count += 1;
                     setlabelrunner("m5");
+                    addtilesevent("m5");
                 }
             }
         });
@@ -314,6 +334,7 @@ public class Mahjongappgui extends JPanel {
                 if (m6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m6Count += 1;
                     setlabelrunner("m6");
+                    addtilesevent("m6");
                 }
             }
         });
@@ -323,6 +344,7 @@ public class Mahjongappgui extends JPanel {
                 if (m7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m7Count += 1;
                     setlabelrunner("m7");
+                    addtilesevent("m7");
                 }
             }
         });
@@ -332,6 +354,7 @@ public class Mahjongappgui extends JPanel {
                 if (m8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m8Count += 1;
                     setlabelrunner("m8");
+                    addtilesevent("m8");
                 }
             }
         });
@@ -341,6 +364,7 @@ public class Mahjongappgui extends JPanel {
                 if (m9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     m9Count += 1;
                     setlabelrunner("m9");
+                    addtilesevent("m9");
                 }
             }
         });
@@ -350,6 +374,7 @@ public class Mahjongappgui extends JPanel {
                 if (p1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p1Count += 1;
                     setlabelrunner("p1");
+                    addtilesevent("p1");
                 }
             }
         });
@@ -359,6 +384,7 @@ public class Mahjongappgui extends JPanel {
                 if (p2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p2Count += 1;
                     setlabelrunner("p2");
+                    addtilesevent("p2");
                 }
             }
         });
@@ -368,6 +394,7 @@ public class Mahjongappgui extends JPanel {
                 if (p3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p3Count += 1;
                     setlabelrunner("p3");
+                    addtilesevent("p3");
                 }
             }
         });
@@ -377,6 +404,7 @@ public class Mahjongappgui extends JPanel {
                 if (p4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p4Count += 1;
                     setlabelrunner("p4");
+                    addtilesevent("p4");
                 }
             }
         });
@@ -386,6 +414,7 @@ public class Mahjongappgui extends JPanel {
                 if (p5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p5Count += 1;
                     setlabelrunner("p5");
+                    addtilesevent("p5");
                 }
             }
         });
@@ -395,6 +424,7 @@ public class Mahjongappgui extends JPanel {
                 if (p6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p6Count += 1;
                     setlabelrunner("p6");
+                    addtilesevent("p6");
                 }
             }
         });
@@ -404,6 +434,7 @@ public class Mahjongappgui extends JPanel {
                 if (p7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p7Count += 1;
                     setlabelrunner("p7");
+                    addtilesevent("p7");
                 }
             }
         });
@@ -413,6 +444,7 @@ public class Mahjongappgui extends JPanel {
                 if (p8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p8Count += 1;
                     setlabelrunner("p8");
+                    addtilesevent("p8");
                 }
             }
         });
@@ -422,6 +454,7 @@ public class Mahjongappgui extends JPanel {
                 if (p9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     p9Count += 1;
                     setlabelrunner("p9");
+                    addtilesevent("p9");
                 }
             }
         });
@@ -431,6 +464,7 @@ public class Mahjongappgui extends JPanel {
                 if (w1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     w1Count += 1;
                     setlabelrunner("w1");
+                    addtilesevent("w1");
                 }
             }
         });
@@ -440,6 +474,7 @@ public class Mahjongappgui extends JPanel {
                 if (w2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     w2Count += 1;
                     setlabelrunner("w2");
+                    addtilesevent("w2");
                 }
             }
         });
@@ -449,6 +484,7 @@ public class Mahjongappgui extends JPanel {
                 if (w3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     w3Count += 1;
                     setlabelrunner("w3");
+                    addtilesevent("w3");
                 }
             }
         });
@@ -458,6 +494,7 @@ public class Mahjongappgui extends JPanel {
                 if (w4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     w4Count += 1;
                     setlabelrunner("w4");
+                    addtilesevent("w4");
                 }
             }
         });
@@ -467,6 +504,7 @@ public class Mahjongappgui extends JPanel {
                 if (h1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     h1Count += 1;
                     setlabelrunner("h1");
+                    addtilesevent("h1");
                 }
             }
         });
@@ -476,6 +514,7 @@ public class Mahjongappgui extends JPanel {
                 if (h2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     h2Count += 1;
                     setlabelrunner("h2");
+                    addtilesevent("h2");
                 }
             }
         });
@@ -485,6 +524,7 @@ public class Mahjongappgui extends JPanel {
                 if (h3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
                     h3Count += 1;
                     setlabelrunner("h3");
+                    addtilesevent("h3");
                 }
             }
         });
@@ -492,12 +532,14 @@ public class Mahjongappgui extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 enterchannel = true;
+                EventLog.getInstance().logEvent(new Event("Event: Change enter channel to closed"));
             }
         });
         openhandbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 enterchannel = false;
+                EventLog.getInstance().logEvent(new Event("Event: Change enter channel to opened"));
             }
         });
         calculateButton.addActionListener(new ActionListener() {
@@ -509,6 +551,7 @@ public class Mahjongappgui extends JPanel {
                 } else if (closedhand.size() + openedhand.size() < 14) {
                     JOptionPane.showMessageDialog(null, "not enough tiles in your hand");
                 } else {
+                    EventLog.getInstance().logEvent(new Event("Event: Calculate hand"));
                     Mahjong game = new Mahjong(closedhand, openedhand, round, position);
                     ScoreCalculator score = new ScoreCalculator((game));
                     int yaku = score.getYaku() + 14 * score.getYakumanCount() + 28 * score.getDoubleyakumanCount();
@@ -528,15 +571,19 @@ public class Mahjongappgui extends JPanel {
                         break;
                     case "East":
                         round = 1;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to East"));
                         break;
                     case "South":
                         round = 2;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to South"));
                         break;
                     case "West":
                         round = 3;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to West"));
                         break;
                     case "North":
                         round = 4;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to North"));
                         break;
 
                 }
@@ -553,15 +600,19 @@ public class Mahjongappgui extends JPanel {
                         break;
                     case "East":
                         position = 1;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to East"));
                         break;
                     case "South":
                         position = 2;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to South"));
                         break;
                     case "West":
                         position = 3;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to West"));
                         break;
                     case "North":
                         position = 4;
+                        EventLog.getInstance().logEvent(new Event("Event: Calculate set wind to North"));
                         break;
 
                 }
@@ -571,6 +622,7 @@ public class Mahjongappgui extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveHand();
+                EventLog.getInstance().logEvent(new Event("Event: Save hand "));
             }
         });
         loadButton.addActionListener(new ActionListener() {
@@ -578,6 +630,7 @@ public class Mahjongappgui extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 restartButton.doClick();
                 loadHand(JSON_STORE);
+                EventLog.getInstance().logEvent(new Event("Event: Load hand "));
             }
         });
         restartButton.addActionListener(new ActionListener() {
@@ -588,6 +641,7 @@ public class Mahjongappgui extends JPanel {
                 clearlabels();
                 windBox.setSelectedIndex(round);
                 positionBox.setSelectedIndex(position);
+                EventLog.getInstance().logEvent(new Event("Event: Restart calculator "));
 
             }
         });
@@ -601,6 +655,7 @@ public class Mahjongappgui extends JPanel {
                     JOptionPane.showMessageDialog(null, "please select a sample hand to load");
                 } else {
                     loadHand(samplehandpath);
+                    EventLog.getInstance().logEvent(new Event("Event: Load sample hand from library"));
                 }
 
 
@@ -631,8 +686,15 @@ public class Mahjongappgui extends JPanel {
                     case "Shousuushii 小四喜":
                         h = "Shousuushii";
                         break;
-
-
+                    case "Tsuuiisou 字一色":
+                        h = "Tsuuiisou";
+                        break;
+                    case "Daisangen 大三元":
+                        h = "Daisangen";
+                        break;
+                    case "Chinitsu 清一色":
+                        h = "Chinitsu";
+                        break;
                     case "Kokushi musou 国士無双":
                         h = "Kokushimusou";
                         break;
@@ -690,8 +752,34 @@ public class Mahjongappgui extends JPanel {
                 }
 
                 samplehandpath = ("data/samplehands/" + h + ".json");
+                EventLog.getInstance().logEvent(new Event("Event: select a sample hand"));
             }
         });
+        printlogbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LogPrinter l = new LogPrinter();
+
+                JTextArea textArea = new JTextArea(l.gatherlogtext(EventLog.getInstance()));
+                JScrollPane scrollPane = new JScrollPane(textArea);
+                textArea.setLineWrap(true);
+                textArea.setWrapStyleWord(true);
+                JOptionPane.showMessageDialog(null, scrollPane, "Event Log",
+                        JOptionPane.YES_NO_OPTION, new ImageIcon());
+
+//                JOptionPane.showMessageDialog(null, l.gatherlogtext(EventLog.getInstance()));
+            }
+        });
+        clearlogbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EventLog.getInstance().clear();
+            }
+        });
+    }
+
+    private static void addtilesevent(String s) {
+        EventLog.getInstance().logEvent(new Event("Event: Added Tile " + s));
     }
 
     // Require int of one of 0 or 1

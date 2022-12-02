@@ -25,45 +25,45 @@ public class Mahjong {
     private ArrayList<Tile> shungtsutiles;
     private ArrayList<Tile> shungtsutilessearch;
 
-    private Tile s1 = new So(1);
-    private Tile s2 = new So(2);
-    private Tile s3 = new So(3);
-    private Tile s4 = new So(4);
-    private Tile s5 = new So(5);
-    private Tile s6 = new So(6);
-    private Tile s7 = new So(7);
-    private Tile s8 = new So(8);
-    private Tile s9 = new So(9);
+    private static Tile s1 = new So(1);
+    private static Tile s2 = new So(2);
+    private static Tile s3 = new So(3);
+    private static Tile s4 = new So(4);
+    private static Tile s5 = new So(5);
+    private static Tile s6 = new So(6);
+    private static Tile s7 = new So(7);
+    private static Tile s8 = new So(8);
+    private static Tile s9 = new So(9);
 
 
-    private Tile m1 = new Man(1);
-    private Tile m2 = new Man(2);
-    private Tile m3 = new Man(3);
-    private Tile m4 = new Man(4);
-    private Tile m5 = new Man(5);
-    private Tile m6 = new Man(6);
-    private Tile m7 = new Man(7);
-    private Tile m8 = new Man(8);
-    private Tile m9 = new Man(9);
+    private static Tile m1 = new Man(1);
+    private static Tile m2 = new Man(2);
+    private static Tile m3 = new Man(3);
+    private static Tile m4 = new Man(4);
+    private static Tile m5 = new Man(5);
+    private static Tile m6 = new Man(6);
+    private static Tile m7 = new Man(7);
+    private static Tile m8 = new Man(8);
+    private static Tile m9 = new Man(9);
 
-    private Tile p1 = new Pin(1);
-    private Tile p2 = new Pin(2);
-    private Tile p3 = new Pin(3);
-    private Tile p4 = new Pin(4);
-    private Tile p5 = new Pin(5);
-    private Tile p6 = new Pin(6);
-    private Tile p7 = new Pin(7);
-    private Tile p8 = new Pin(8);
-    private Tile p9 = new Pin(9);
+    private static Tile p1 = new Pin(1);
+    private static Tile p2 = new Pin(2);
+    private static Tile p3 = new Pin(3);
+    private static Tile p4 = new Pin(4);
+    private static Tile p5 = new Pin(5);
+    private static Tile p6 = new Pin(6);
+    private static Tile p7 = new Pin(7);
+    private static Tile p8 = new Pin(8);
+    private static Tile p9 = new Pin(9);
 
-    private Tile w1 = new Wind(1);
-    private Tile w2 = new Wind(2);
-    private Tile w3 = new Wind(3);
-    private Tile w4 = new Wind(4);
+    private static Tile w1 = new Wind(1);
+    private static Tile w2 = new Wind(2);
+    private static Tile w3 = new Wind(3);
+    private static Tile w4 = new Wind(4);
 
-    private Tile h1 = new Honor(1);
-    private Tile h2 = new Honor(2);
-    private Tile h3 = new Honor(3);
+    private static Tile h1 = new Honor(1);
+    private static Tile h2 = new Honor(2);
+    private static Tile h3 = new Honor(3);
 
 
     /*
@@ -92,9 +92,7 @@ public class Mahjong {
         setStartShuntsu("o");
 
 
-//        ScoreCalculator newgame = new ScoreCalculator(this);
-//        newgame.computeScore();
-//        this.score = newgame.getScore();
+
     }
 
 
@@ -142,7 +140,6 @@ public class Mahjong {
 
     public void stringToTileForSo(int id) {
         if (id == 1) {
-
             addtileandincreasecount(s1);
         } else if (id == 2) {
             addtileandincreasecount(s2);
@@ -316,80 +313,14 @@ public class Mahjong {
 
 
                                 }
-//                                break;
                             }
                         }
-//                        break;
                     }
                 }
-//                break;
             }
         }
     }
 
-
-    /*
-     * * MODIFIES this
-     * EFFECTS: increase the number count of the tiles and return true if found duplicate else false
-     */
-//    public boolean countTile(Tile t) {
-//
-//        if (hand.contains(t)) {
-//            return true;
-//
-//        } else {
-//            return false;
-//
-//        }
-////        Tile privioust;
-////        for (Tile s : hand) {
-////            if (hand.contains(s)) {
-////                hand.remove(s);
-////                s.increaseCount();
-////            }
-////
-////            s.increaseCount();
-////
-////
-////        }
-//    }
-
-
-//    @Override
-//    public JSONObject toJson() {
-//        JSONObject json = new JSONObject();
-//        json.put("round", round);
-//        json.put("position", position);
-//        json.put("userinputclosed", TilesToJson(1));
-//        json.put("userinputopened", TilesToJson(2));
-//
-//        return json;
-//    }
-//
-////    private JSONArray TilesToJson(int i) {
-////        JSONArray jsonArray = new JSONArray();
-////        ArrayList<String> tiles = new ArrayList<String>();
-////        if (i == 1) {
-////            tiles = userinputclosed;
-////        }
-////        if (i == 2) {
-////            tiles = userinputopened;
-////        }
-////        for (String t : tiles) {
-////            jsonArray.put(t.toJson());
-////        }
-////
-////        return jsonArray;
-////    }
-//
-//    public JSONArray toJson(ArrayList<String> hand) {
-//        JSONArray jsArray = new JSONArray();
-//        for (int i = 0; i < hand.size(); i++) {
-//            jsArray.put(hand.get(i));
-//        }
-//        return jsArray;
-//
-//    }
 
     public int getScore() {
         return score;
