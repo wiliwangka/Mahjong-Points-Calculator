@@ -57,13 +57,13 @@ Event: select a sample hand
 
 
 Fri Dec 02 02:52:34 PST 2022
-Event: Added Tile h1
+Event: Added Tile h1 to hand
 
 Fri Dec 02 02:52:34 PST 2022
-Event: Added Tile m1
+Event: Added Tile m1 to hand
 
 Fri Dec 02 02:52:35 PST 2022
-Event: Added Tile w3
+Event: Added Tile w3 to hand
 
 Fri Dec 02 02:52:35 PST 2022
 Event: set wind to West

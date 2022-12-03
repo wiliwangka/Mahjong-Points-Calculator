@@ -876,7 +876,7 @@ public class Mahjongappgui extends JPanel {
     //Modify this
     // Effect  add s tile adding event to log
     private static void addtilesevent(String s) {
-        EventLog.getInstance().logEvent(new Event("Event: Added Tile " + s));
+        EventLog.getInstance().logEvent(new Event("Event: Added Tile " + s + " to hand"));
     }
 
     // Require int of one of 0 or 1
