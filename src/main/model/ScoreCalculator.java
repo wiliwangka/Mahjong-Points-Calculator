@@ -772,6 +772,7 @@ public class ScoreCalculator {
         }
         shoosuushiihelper(eastcount, southcount, westcount, northcount);
     }
+
     //Modify this
 // EFFECT helper method for soosuushii , check if east, south ,west,north is present and set score and wining message
     private void shoosuushiihelper(int eastcount, int southcount, int westcount, int northcount) {

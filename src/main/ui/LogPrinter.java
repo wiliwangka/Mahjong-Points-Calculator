@@ -4,6 +4,7 @@ import model.Event;
 import model.EventLog;
 
 import java.util.ArrayList;
+
 // a printer for log
 public class LogPrinter {
     String logtext;
@@ -12,6 +13,7 @@ public class LogPrinter {
     public LogPrinter() {
 
     }
+
     //Modify this
     // EFFECT convert Eventlog to String
     public String gatherlogtext(EventLog el) {
