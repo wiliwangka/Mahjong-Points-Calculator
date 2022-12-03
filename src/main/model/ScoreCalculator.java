@@ -59,6 +59,8 @@ public class ScoreCalculator {
         computeScore();
     }
 
+    //modify this
+    //Effect add tiles in closedhand and openedhand to hand
     private void initializehand() {
         hand = new ArrayList<Tile>();
         for (Tile t : closedhand) {
@@ -115,6 +117,7 @@ public class ScoreCalculator {
         }
     }
 
+    //Motify this
     // EFFECT computer score for hand that that doesn't have yakuman
     private void noYakuMan() {
         // six yaku
@@ -148,6 +151,7 @@ public class ScoreCalculator {
 
     }
 
+    //Motify this
     // EFFECT computer score for honor and wind tiplets
     private void specialyaku() {
         if (!(winingMessages.contains("Daisuushii 大四喜") || winingMessages.contains("Shousuushii 小四喜"))) {
@@ -748,7 +752,6 @@ public class ScoreCalculator {
     //Modify this
 // EFFECT determine if the hand contain shosushi yaku
     //This hand has three groups (triplets or quads) of the wind tiles plus a pair of the fourth kind.
-    @SuppressWarnings("methodlength")
     private void shosushi() {
         int eastcount = 0;
         int southcount = 0;
@@ -767,6 +770,11 @@ public class ScoreCalculator {
                 }
             }
         }
+        shoosuushiihelper(eastcount, southcount, westcount, northcount);
+    }
+    //Modify this
+// EFFECT helper method for soosuushii , check if east, south ,west,north is present and set score and wining message
+    private void shoosuushiihelper(int eastcount, int southcount, int westcount, int northcount) {
         if ((eastcount >= 3 && southcount >= 3 && westcount >= 3 && northcount == 2)
                 || (eastcount >= 3 && southcount >= 3 && westcount == 2 && northcount >= 3)
                 || (eastcount >= 3 && southcount == 2 && westcount >= 3 && northcount >= 3)
@@ -789,7 +797,6 @@ public class ScoreCalculator {
     //Modify this
 // EFFECT determine if the hand contain chuurenpoutou yaku
     //A hand consisting of the tiles 1112345678999 in the same suit plus any one extra tile in Man Tile.
-    @SuppressWarnings("methodlength")
     private void chuurenPoutou() {
         if (openedhand.size() == 0
                 && hand.stream().filter(t -> t.getCatergory().equals("Man")).collect(Collectors.toList()).size() >= 14

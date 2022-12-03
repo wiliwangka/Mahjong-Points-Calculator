@@ -184,8 +184,9 @@ public class Mahjongappgui extends JPanel {
     public Mahjongappgui() {
         initialization(0);
 
-
         so1Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s1
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -193,11 +194,11 @@ public class Mahjongappgui extends JPanel {
                     setlabelrunner("s1");
                     addtilesevent("s1");
                 }
-
-
             }
         });
         so2Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s2
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -208,6 +209,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so3Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s3
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -218,6 +221,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so4Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s4
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -228,6 +233,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so5Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s5
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -238,6 +245,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so6Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s6
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -248,6 +257,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so7Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s7
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -258,6 +269,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so8Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s8
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -268,6 +281,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         so9Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for s9
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (s9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -278,6 +293,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man1Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m1
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -288,6 +305,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man2Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m2
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -298,6 +317,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man3Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m3
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -308,6 +329,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man4Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m4
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -318,6 +341,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man5Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m5
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -328,6 +353,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man6Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m6
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -338,6 +365,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man7Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m7
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -348,6 +377,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man8Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m8
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -358,6 +389,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         man9Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for m9
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (m9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -368,6 +401,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin1Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p1
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -378,6 +413,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin2Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p2
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -388,6 +425,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin3Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p3
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -398,6 +437,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin4Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p4
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -408,6 +449,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin5Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p5
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p5Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -418,6 +461,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin6Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p6
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p6Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -428,6 +473,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin7Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p7
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p7Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -438,6 +485,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin8Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p8
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p8Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -448,6 +497,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         pin9Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for p9
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (p9Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -458,6 +509,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         wind1Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for w1
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (w1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -468,6 +521,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         wind2Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for w2
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (w2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -478,6 +533,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         wind3Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for w3
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (w3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -488,6 +545,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         wind4Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for w4
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (w4Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -498,6 +557,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         honor1Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for h1
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (h1Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -508,6 +569,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         honor2Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for h2
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (h2Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -518,6 +581,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         honor3Button.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set tile label and add log event for h3
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (h3Count + 1 <= 4 && tilePositionCount <= 18 && opentilePositionCount <= 16) {
@@ -528,6 +593,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         closedhandbutton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set enter channel for closed
             @Override
             public void actionPerformed(ActionEvent e) {
                 enterchannel = true;
@@ -535,6 +602,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         openhandbutton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect set enter channel for opened
             @Override
             public void actionPerformed(ActionEvent e) {
                 enterchannel = false;
@@ -542,6 +611,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         calculateButton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect Calculate the scoring of entered hand
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -563,6 +634,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         windBox.addItemListener(new ItemListener() {
+            //Modify this
+            // Effect set wind to one of east, south ,west or north
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String s = windBox.getSelectedItem().toString();
@@ -592,6 +665,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         positionBox.addItemListener(new ItemListener() {
+            //Modify this
+            // Effect set position to one of east, south ,west or north
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String s = positionBox.getSelectedItem().toString();
@@ -620,6 +695,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         saveButton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect save the entered tiles and wind position value to data folder
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveHand();
@@ -627,6 +704,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         loadButton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect  load saved tiles and wind position value from the data folder
             @Override
             public void actionPerformed(ActionEvent e) {
                 restartButton.doClick();
@@ -635,6 +714,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         restartButton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect clear all label icon and reset all field value
             @Override
             public void actionPerformed(ActionEvent e) {
                 initialization(1);
@@ -647,6 +728,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         loadSampleButton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect  load pre-entered tiles and wind position value from the data/samplehand folder
             @Override
             public void actionPerformed(ActionEvent e) {
                 restartButton.doClick();
@@ -665,6 +748,8 @@ public class Mahjongappgui extends JPanel {
 
 
         samplehandselection.addItemListener(new ItemListener() {
+            //Modify this
+            // Effect  select a pre-entered sample hand form the data/samplehand folder
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String h = "";
@@ -757,6 +842,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         printlogbutton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect print the recorded log using a pop-up window
             @Override
             public void actionPerformed(ActionEvent e) {
                 LogPrinter l = new LogPrinter();
@@ -776,6 +863,8 @@ public class Mahjongappgui extends JPanel {
             }
         });
         clearlogbutton.addActionListener(new ActionListener() {
+            //Modify this
+            // Effect clear recorded log and add clear log event to log
             @Override
             public void actionPerformed(ActionEvent e) {
                 EventLog.getInstance().clear();
@@ -783,6 +872,9 @@ public class Mahjongappgui extends JPanel {
         });
     }
 
+    // require a string that represent a tile in mahjong
+    //Modify this
+    // Effect  add s tile adding event to log
     private static void addtilesevent(String s) {
         EventLog.getInstance().logEvent(new Event("Event: Added Tile " + s));
     }
@@ -828,6 +920,8 @@ public class Mahjongappgui extends JPanel {
         setbhelper2();
     }
 
+    //Modify this
+    // EFFECT set icon for the mahjong buttons for the first half of buttons
     private void setbhelper1() {
         so1Button.setIcon((new ImageIcon("data/mahjongtiles/s1.jpg")));
         so2Button.setIcon((new ImageIcon("data/mahjongtiles/s2.jpg")));
@@ -850,6 +944,8 @@ public class Mahjongappgui extends JPanel {
         man9Button.setIcon((new ImageIcon("data/mahjongtiles/m9.jpg")));
     }
 
+    //Modify this
+    // EFFECT set icon for the mahjong buttons for the second half of buttons
     private void setbhelper2() {
         pin1Button.setIcon((new ImageIcon("data/mahjongtiles/p1.jpg")));
         pin2Button.setIcon((new ImageIcon("data/mahjongtiles/p2.jpg")));
@@ -887,83 +983,27 @@ public class Mahjongappgui extends JPanel {
 
         }
     }
-    //require a string that represent a path to a image file in data folder
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
     //Modify this
-    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
 // EFFECT set label image from different source based on input path
 
     protected void setLabelIcon(String file) {
         if (enterchannel) {
-            setcbuttons(file);
+            ctilesetlabel1(file);
+            ctilesetlabel2(file);
+            ctilesetlabel3(file);
         } else {
-            setobuttons(file);
-        }
-    }
-    //require a string that represent a path to a image file in data folder
-    //Modify this
-    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
-// EFFECT set label image from different source based on input path
-
-    @SuppressWarnings("methodlength")
-    private void setobuttons(String file) {
-        switch (opentilePositionCount + 1) {
-            case 1:
-                otile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 2:
-                otile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 3:
-                otile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 4:
-                otile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 5:
-                otile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 6:
-                otile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 7:
-                otile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 8:
-                otile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 9:
-                otile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 10:
-                otile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 11:
-                otile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 12:
-                otile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 13:
-                otile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 14:
-                otile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 15:
-                otile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
-            case 16:
-                otile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
-                break;
+            otilesetlabel1(file);
+            otilesetlabel2(file);
+            otilesetlabel3(file);
         }
     }
 
-    //require a string that represent a path to a image file in data folder
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
     //Modify this
-    // REQUIRE a String of path for the file insdie the data/mahjongtiles folder
 // EFFECT set label image from different source based on input path
-    @SuppressWarnings("methodlength")
-    private void setcbuttons(String file) {
+    private void ctilesetlabel1(String file) {
         switch (tilePositionCount + 1) {
             case 1:
                 tile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
@@ -983,6 +1023,14 @@ public class Mahjongappgui extends JPanel {
             case 6:
                 tile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
                 break;
+        }
+    }
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
+    //Modify this
+// EFFECT set label image from different source based on input path
+    private void ctilesetlabel2(String file) {
+        switch (tilePositionCount + 1) {
             case 7:
                 tile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
                 break;
@@ -1001,6 +1049,14 @@ public class Mahjongappgui extends JPanel {
             case 12:
                 tile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
                 break;
+        }
+    }
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
+    //Modify this
+// EFFECT set label image from different source based on input path
+    private void ctilesetlabel3(String file) {
+        switch (tilePositionCount + 1) {
             case 13:
                 tile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
                 break;
@@ -1018,6 +1074,80 @@ public class Mahjongappgui extends JPanel {
                 break;
             case 18:
                 tile18Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+        }
+    }
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
+    //Modify this
+// EFFECT set label image from different source based on input path
+    private void otilesetlabel1(String file) {
+        switch (opentilePositionCount + 1) {
+            case 1:
+                otile1Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 2:
+                otile2Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 3:
+                otile3Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 4:
+                otile4Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 5:
+                otile5Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+
+        }
+    }
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
+    //Modify this
+// EFFECT set label image from different source based on input path
+    private void otilesetlabel2(String file) {
+        switch (opentilePositionCount + 1) {
+            case 6:
+                otile6Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 7:
+                otile7Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 8:
+                otile8Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 9:
+                otile9Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 10:
+                otile10Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+
+        }
+    }
+
+    // REQUIRE a String represent the file insdie the data/mahjongtiles folder
+    //Modify this
+// EFFECT set label image from different source based on input path
+    private void otilesetlabel3(String file) {
+        switch (opentilePositionCount + 1) {
+            case 11:
+                otile11Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 12:
+                otile12Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 13:
+                otile13Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 14:
+                otile14Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 15:
+                otile15Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
+                break;
+            case 16:
+                otile16Label.setIcon((new ImageIcon("data/mahjongtiles/" + file)));
                 break;
         }
     }
@@ -1180,120 +1310,108 @@ public class Mahjongappgui extends JPanel {
     //Require String that represent a tiles in mahjong game
     // motify this
     // EFFECT click the button represent by the tile enter
-    @SuppressWarnings("methodlength")
+
     protected void doclick(String s) {
-        switch (s) {
-            case "s1":
-                so1Button.doClick();
-                break;
-            case "s2":
-                so2Button.doClick();
-                break;
-            case "s3":
-                so3Button.doClick();
-                break;
-            case "s4":
-                so4Button.doClick();
-                break;
-            case "s5":
-                so5Button.doClick();
-                break;
-            case "s6":
-                so6Button.doClick();
-                break;
-            case "s7":
-                so7Button.doClick();
-                break;
-            case "s8":
-                so8Button.doClick();
-                break;
-            case "s9":
-                so9Button.doClick();
-                break;
+        doclickso(s);
+        doclickman(s);
+        doclickpin(s);
+        doclickwindandhonor(s);
 
+    }
 
-            case "m1":
-                man1Button.doClick();
-                break;
-            case "m2":
-                man2Button.doClick();
-                break;
-            case "m3":
-                man3Button.doClick();
-                break;
-            case "m4":
-                man4Button.doClick();
-                break;
-            case "m5":
-                man5Button.doClick();
-                break;
-            case "m6":
-                man6Button.doClick();
-                break;
-            case "m7":
-                man7Button.doClick();
-                break;
-            case "m8":
-                man8Button.doClick();
-                break;
-            case "m9":
-                man9Button.doClick();
-                break;
+    //Require String that represent a  so tiles in mahjong game
+    // motify this
+    // EFFECT click the button represent by the so tile enter
+    private void doclickso(String s) {
+        if (s.equals("s1")) {
+            so1Button.doClick();
+        } else if (s.equals("s2")) {
+            so2Button.doClick();
+        } else if (s.equals("s3")) {
+            so3Button.doClick();
+        } else if (s.equals("s4")) {
+            so4Button.doClick();
+        } else if (s.equals("s5")) {
+            so5Button.doClick();
+        } else if (s.equals("s6")) {
+            so6Button.doClick();
+        } else if (s.equals("s7")) {
+            so7Button.doClick();
+        } else if (s.equals("s8")) {
+            so8Button.doClick();
+        } else if (s.equals("s9")) {
+            so9Button.doClick();
+        }
+    }
 
+    //Require String that represent a man tiles in mahjong game
+    // motify this
+    // EFFECT click the button represent by the man tile enter
+    private void doclickman(String s) {
+        if (s.equals("m1")) {
+            man1Button.doClick();
+        } else if (s.equals("m2")) {
+            man2Button.doClick();
+        } else if (s.equals("m3")) {
+            man3Button.doClick();
+        } else if (s.equals("m4")) {
+            man4Button.doClick();
+        } else if (s.equals("m5")) {
+            man5Button.doClick();
+        } else if (s.equals("m6")) {
+            man6Button.doClick();
+        } else if (s.equals("m7")) {
+            man7Button.doClick();
+        } else if (s.equals("m8")) {
+            man8Button.doClick();
+        } else if (s.equals("m9")) {
+            man9Button.doClick();
+        }
+    }
 
-            case "p1":
-                pin1Button.doClick();
-                break;
-            case "p2":
-                pin2Button.doClick();
-                break;
-            case "p3":
-                pin3Button.doClick();
-                break;
-            case "p4":
-                pin4Button.doClick();
-                break;
-            case "p5":
-                pin5Button.doClick();
-                break;
-            case "p6":
-                pin6Button.doClick();
-                break;
-            case "p7":
-                pin7Button.doClick();
-                break;
-            case "p8":
-                pin8Button.doClick();
-                break;
-            case "p9":
-                pin9Button.doClick();
-                break;
+    //Require String that represent a pin tiles in mahjong game
+    // motify this
+    // EFFECT click the button represent by the pin tile enter
+    private void doclickpin(String s) {
+        if (s.equals("p1")) {
+            pin1Button.doClick();
+        } else if (s.equals("p2")) {
+            pin2Button.doClick();
+        } else if (s.equals("p3")) {
+            pin3Button.doClick();
+        } else if (s.equals("p4")) {
+            pin4Button.doClick();
+        } else if (s.equals("p5")) {
+            pin5Button.doClick();
+        } else if (s.equals("p6")) {
+            pin6Button.doClick();
+        } else if (s.equals("p7")) {
+            pin7Button.doClick();
+        } else if (s.equals("p8")) {
+            pin8Button.doClick();
+        } else if (s.equals("p9")) {
+            pin9Button.doClick();
+        }
+    }
 
-
-            case "w1":
-                wind1Button.doClick();
-                break;
-            case "w2":
-                wind2Button.doClick();
-                break;
-            case "w3":
-                wind3Button.doClick();
-                break;
-            case "w4":
-                wind4Button.doClick();
-                break;
-
-            case "h1":
-                honor1Button.doClick();
-                break;
-            case "h2":
-                honor2Button.doClick();
-                break;
-            case "h3":
-                honor3Button.doClick();
-                break;
-
-
+    //Require String that represent a wind or honor tiles in mahjong game
+    // motify this
+    // EFFECT click the button represent by wind or honor tile enter
+    private void doclickwindandhonor(String s) {
+        if (s.equals("w1")) {
+            wind1Button.doClick();
+        } else if (s.equals("w2")) {
+            wind2Button.doClick();
+        } else if (s.equals("w3")) {
+            wind3Button.doClick();
+        } else if (s.equals("w4")) {
+            wind4Button.doClick();
+        } else if (s.equals("h1")) {
+            honor1Button.doClick();
+        } else if (s.equals("h2")) {
+            honor2Button.doClick();
+        } else if (s.equals("h3")) {
+            honor3Button.doClick();
         }
     }
 
