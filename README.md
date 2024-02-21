@@ -1,4 +1,4 @@
-#Riichi Roundup🀄️
+# Riichi Mahjong Points Calculator 🀄️
 ___
 
 ## Introduction 
