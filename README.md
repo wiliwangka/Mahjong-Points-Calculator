@@ -1,4 +1,4 @@
-# My Personal Project: Mahjong Points Calculator
+Riichi Roundup🀄️
 ___
 
 ## Introduction 
